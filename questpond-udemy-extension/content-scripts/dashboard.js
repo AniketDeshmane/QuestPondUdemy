@@ -32,17 +32,17 @@
     { keywords: ['java', 'spring', 'springboot'], bg: 'linear-gradient(135deg, #431407 0%, #1c0a02 100%)', icon: '☕', tag: 'Java Spring' }
   ];
 
-  function getTechTheme(title) {
-    const lower = title.toLowerCase();
+  function getTechTheme(title = '', fullText = '') {
+    const searchTarget = (title + ' ' + fullText).toLowerCase();
     for (const theme of TECH_THEMES) {
-      if (theme.keywords.some(k => lower.includes(k))) {
+      if (theme.keywords.some(k => searchTarget.includes(k))) {
         return theme;
       }
     }
     return {
       bg: 'linear-gradient(135deg, #1e1b4b 0%, #0f172a 100%)',
-      icon: '📚',
-      tag: 'QuestPond Course'
+      icon: '💻',
+      tag: 'Full Course'
     };
   }
 
@@ -492,11 +492,13 @@
       if (card.dataset.enhanced) return;
       card.dataset.enhanced = 'true';
 
-      const titleEl = card.querySelector('h2, h3, [class*="font-semibold"], [class*="font-bold"]');
-      const title = titleEl ? titleEl.textContent.trim() : '';
-      if (!title) return;
+      let title = '';
+      const titleEl = card.querySelector('h2, h3, h4, [class*="font-semibold"], [class*="font-bold"], [class*="title"]');
+      const textLines = (card.innerText || card.textContent || '').split('\n').map(s => s.trim()).filter(Boolean);
+      title = (titleEl?.textContent || textLines[0] || '').trim();
 
-      const theme = getTechTheme(title);
+      const fullCardText = (title + ' ' + (card.innerText || '') + ' ' + (card.getAttribute('href') || '')).toLowerCase();
+      const theme = getTechTheme(title, fullCardText);
 
       // Re-image legacy/ugly yellow bitmaps with high-taste gradient artwork
       const imgContainer = card.querySelector('.aspect-video, [class*="w-48"], [class*="w-56"], [class*="w-64"], img')?.parentElement || card.firstElementChild;
@@ -566,11 +568,13 @@
       if (card.dataset.enhanced) return;
       card.dataset.enhanced = 'true';
 
-      const titleEl = card.querySelector('h2.ProductTitle, h2, [class*="font-semibold"]');
-      const title = titleEl ? titleEl.textContent.trim() : '';
-      if (!title) return;
+      let title = '';
+      const titleEl = card.querySelector('h2.ProductTitle, h2, h3, [class*="font-semibold"], [class*="font-bold"], [class*="title"]');
+      const textLines = (card.innerText || card.textContent || '').split('\n').map(s => s.trim()).filter(Boolean);
+      title = (titleEl?.textContent || textLines[0] || '').trim();
 
-      const theme = getTechTheme(title);
+      const fullCardText = (title + ' ' + (card.innerText || '') + ' ' + (card.getAttribute('href') || '')).toLowerCase();
+      const theme = getTechTheme(title, fullCardText);
       const img = card.querySelector('img');
       const imgContainer = img?.parentElement || card.querySelector('.aspect-video') || card.firstElementChild;
 
@@ -686,6 +690,47 @@
     });
   }
 
+  // Enhance Enrolled course page (/courses/enrolled/*, /courses/*)
+  function enhanceEnrolledCoursePage() {
+    const enrolledLayout = document.querySelector('.enrolled-course-layout');
+    if (!enrolledLayout) return;
+
+    const sidebar = enrolledLayout.querySelector('.course-sidebar');
+    if (sidebar && !sidebar.dataset.enhanced) {
+      sidebar.dataset.enhanced = 'true';
+      const titleEl = sidebar.querySelector('h2');
+      const title = titleEl ? titleEl.textContent.trim() : document.title;
+      const fullText = (title + ' ' + window.location.pathname).toLowerCase();
+      const theme = getTechTheme(title, fullText);
+
+      const img = sidebar.querySelector('img.course-image, img');
+      if (img) {
+        const placeholder = document.createElement('div');
+        placeholder.className = 'qp-sidebar-gradient-thumb';
+        placeholder.style.cssText = `
+          width: 100%;
+          aspect-ratio: 16 / 9;
+          background: ${theme.bg};
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          color: #ffffff;
+          padding: 20px 16px;
+          text-align: center;
+          border-radius: 8px;
+          margin-bottom: 16px;
+          box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.4);
+        `;
+        placeholder.innerHTML = `
+          <div style="font-size: 40px; margin-bottom: 8px; filter: drop-shadow(0 2px 8px rgba(0,0,0,0.5));">${theme.icon}</div>
+          <div style="font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; background: rgba(255,255,255,0.18); backdrop-filter: blur(8px); padding: 4px 10px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.25);">${theme.tag}</div>
+        `;
+        img.replaceWith(placeholder);
+      }
+    }
+  }
+
   // Check stored dark mode preference on load
   if (chrome?.storage?.local) {
     chrome.storage.local.get(['darkMode'], (result) => {
@@ -710,6 +755,7 @@
     // Run enhancements for Next.js app pages and inject navbar theme button
     enhanceTeachableDashboard();
     enhanceProductCatalog();
+    enhanceEnrolledCoursePage();
     injectInPageThemeToggle();
 
     if (!isDashboardPage()) return;
@@ -726,6 +772,7 @@
         injectInPageThemeToggle();
         enhanceTeachableDashboard();
         enhanceProductCatalog();
+        enhanceEnrolledCoursePage();
         const deferredCourses = extractCourses();
         if (deferredCourses.length > 0 && !window.__qp_dashboard_initialized) {
           observer.disconnect();

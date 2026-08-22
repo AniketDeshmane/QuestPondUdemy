@@ -765,6 +765,9 @@ body.qp-dark-mode .course-mainbar .course-section .section-title {
   transition: var(--qp-transition) !important;
 }
 
+body.qp-dark-mode .course-mainbar,
+body.qp-dark-mode .course-mainbar .course-section,
+body.qp-dark-mode .course-mainbar ul.section-list,
 body.qp-dark-mode .course-mainbar li.section-item {
   background-color: #1c1d1f !important;
   border-bottom: 1px solid #2d2f31 !important;
@@ -774,8 +777,15 @@ body.qp-dark-mode .course-mainbar li.section-item {
   background-color: #f7f9fa !important;
 }
 
-body.qp-dark-mode .course-mainbar li.section-item:hover {
+body.qp-dark-mode .course-mainbar li.section-item:hover,
+body.qp-dark-mode .course-mainbar a.item:hover {
   background-color: #2d2f31 !important;
+}
+
+body.qp-dark-mode .course-mainbar li.section-item.completed,
+body.qp-dark-mode .course-mainbar li.section-item.active,
+body.qp-dark-mode .course-mainbar li.section-item.selected {
+  background-color: #2a1b38 !important;
 }
 
 .course-mainbar li.section-item a.item {
@@ -783,6 +793,11 @@ body.qp-dark-mode .course-mainbar li.section-item:hover {
   display: flex !important;
   align-items: center !important;
   text-decoration: none !important;
+}
+
+body.qp-dark-mode .course-mainbar a.item {
+  background-color: transparent !important;
+  color: #f7f9fa !important;
 }
 
 .course-mainbar .title-container {
@@ -799,7 +814,9 @@ body.qp-dark-mode .course-mainbar li.section-item:hover {
   line-height: 1.4 !important;
 }
 
-body.qp-dark-mode .course-mainbar .lecture-name {
+body.qp-dark-mode .course-mainbar .lecture-name,
+body.qp-dark-mode .course-mainbar .title-container span,
+body.qp-dark-mode .course-mainbar a.item span {
   color: #f7f9fa !important;
 }
 
@@ -829,6 +846,15 @@ body.qp-dark-mode .course-mainbar .lecture-name {
   max-width: 100% !important;
   border-radius: 6px !important;
   object-fit: cover !important;
+}
+
+body.qp-dark-mode .enrolled-course-layout .course-sidebar {
+  background-color: #242628 !important;
+  border-right: 1px solid #3e4143 !important;
+}
+
+body.qp-dark-mode .enrolled-course-layout .course-sidebar h2 {
+  color: #ffffff !important;
 }
 
 /* Hide Skeletons once real content is rendered */

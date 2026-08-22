@@ -610,8 +610,24 @@ li.section-item.completed .status-container::after {
 /* ==========================================================================
    LECTURE PLAYER DARK MODE OVERRIDES (body.qp-dark-mode)
    ========================================================================== */
+body.qp-dark-mode,
+html.qp-dark-mode {
+  background-color: #1c1d1f !important;
+  color: #f7f9fa !important;
+}
+
+body.qp-dark-mode header.full-width,
+body.qp-dark-mode header.course-player__header,
+body.qp-dark-mode header.is-signed-in,
+body.qp-dark-mode header {
+  background-color: #1c1d1f !important;
+  border-bottom: 1px solid #3e4143 !important;
+}
+
 body.qp-dark-mode #courseSidebar,
-body.qp-dark-mode .course-sidebar {
+body.qp-dark-mode .course-sidebar,
+body.qp-dark-mode .lecture-sidebar,
+body.qp-dark-mode .navbar-sidebar-collapse {
   background-color: #1c1d1f !important;
   color: #f7f9fa !important;
   border-right: 1px solid #3e4143 !important;
@@ -639,44 +655,78 @@ body.qp-dark-mode .course-progress .percentage {
   color: #ffffff !important;
 }
 
-body.qp-dark-mode .course-section .section-title {
+body.qp-dark-mode #courseSidebar .course-section,
+body.qp-dark-mode .course-sidebar .course-section,
+body.qp-dark-mode .course-section {
+  background-color: #1c1d1f !important;
+}
+
+body.qp-dark-mode #courseSidebar .section-title,
+body.qp-dark-mode .course-sidebar .section-title,
+body.qp-dark-mode .course-section .section-title,
+body.qp-dark-mode .section-title {
   background-color: #242628 !important;
   color: #ffffff !important;
   border-top: 1px solid #3e4143 !important;
   border-bottom: 1px solid #3e4143 !important;
 }
 
+body.qp-dark-mode #courseSidebar .section-title:hover,
+body.qp-dark-mode .course-sidebar .section-title:hover,
 body.qp-dark-mode .course-section .section-title:hover {
   background-color: #2d2f31 !important;
 }
 
+body.qp-dark-mode #courseSidebar ul.section-list,
+body.qp-dark-mode .course-sidebar ul.section-list,
+body.qp-dark-mode .lecture-sidebar ul.section-list,
+body.qp-dark-mode ul.section-list {
+  background-color: #1c1d1f !important;
+}
+
+body.qp-dark-mode #courseSidebar li.section-item,
+body.qp-dark-mode .course-sidebar li.section-item,
+body.qp-dark-mode .lecture-sidebar li.section-item,
 body.qp-dark-mode li.section-item {
   background-color: #1c1d1f !important;
   border-bottom: 1px solid #2d2f31 !important;
 }
 
+body.qp-dark-mode #courseSidebar li.section-item a.item,
+body.qp-dark-mode .course-sidebar li.section-item a.item,
+body.qp-dark-mode .lecture-sidebar li.section-item a.item,
 body.qp-dark-mode li.section-item a.item {
+  background-color: transparent !important;
   color: #cfd4dc !important;
 }
 
-body.qp-dark-mode .lecture-sidebar .lecture-name,
-body.qp-dark-mode .course-sidebar .lecture-name {
-  color: #f7f9fa !important;
-}
-
+body.qp-dark-mode #courseSidebar li.section-item:hover,
+body.qp-dark-mode .course-sidebar li.section-item:hover,
+body.qp-dark-mode .lecture-sidebar li.section-item:hover,
 body.qp-dark-mode li.section-item:hover {
   background-color: #2d2f31 !important;
 }
 
+body.qp-dark-mode #courseSidebar li.section-item.next-lecture,
+body.qp-dark-mode #courseSidebar li.section-item.active,
+body.qp-dark-mode .course-sidebar li.section-item.next-lecture,
+body.qp-dark-mode .course-sidebar li.section-item.active,
+body.qp-dark-mode .lecture-sidebar li.section-item.active,
 body.qp-dark-mode li.section-item.next-lecture,
 body.qp-dark-mode li.section-item.active {
   background-color: #322340 !important;
   border-left: 4px solid var(--qp-purple) !important;
 }
 
-body.qp-dark-mode li.section-item.next-lecture a.item,
-body.qp-dark-mode li.section-item.active a.item,
-body.qp-dark-mode li.section-item.next-lecture .lecture-name,
+body.qp-dark-mode #courseSidebar .lecture-name,
+body.qp-dark-mode .course-sidebar .lecture-name,
+body.qp-dark-mode .lecture-sidebar .lecture-name,
+body.qp-dark-mode .lecture-name {
+  color: #f7f9fa !important;
+}
+
+body.qp-dark-mode #courseSidebar li.section-item.active .lecture-name,
+body.qp-dark-mode .course-sidebar li.section-item.active .lecture-name,
 body.qp-dark-mode li.section-item.active .lecture-name {
   color: #ffffff !important;
   font-weight: 700 !important;
@@ -687,8 +737,10 @@ body.qp-dark-mode .qp-lesson-duration-badge {
 }
 
 body.qp-dark-mode .course-sidebar .status-container,
-body.qp-dark-mode .lecture-sidebar .status-container {
-  border-color: #8a9199 !important;
+body.qp-dark-mode .lecture-sidebar .status-container,
+body.qp-dark-mode .status-container {
+  border: 2px solid #8a9199 !important;
+  background-color: transparent !important;
 }
 
 body.qp-dark-mode li.section-item.completed .status-container {
