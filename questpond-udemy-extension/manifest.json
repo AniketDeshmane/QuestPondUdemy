@@ -26,13 +26,17 @@
   ],
   "host_permissions": [
     "*://questpond.teachable.com/*",
-    "*://www.questpond.com/*"
+    "*://sso.teachable.com/*",
+    "*://www.questpond.com/*",
+    "*://questpond.com/*"
   ],
   "content_scripts": [
     {
       "matches": [
         "*://questpond.teachable.com/*",
+        "*://sso.teachable.com/*",
         "*://www.questpond.com/*",
+        "*://questpond.com/*",
         "file:///*"
       ],
       "css": [

@@ -386,4 +386,168 @@ body.qp-dark-mode li.section-item.active a.item {
   color: #ffffff !important;
 }
 
+/* ==========================================================================
+   IN-PAGE NAVBAR DARK / LIGHT MODE TOGGLE BUTTON
+   ========================================================================== */
+.qp-inpage-theme-toggle {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  background: rgba(255, 255, 255, 0.12) !important;
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+  color: #ffffff !important;
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  padding: 6px 14px !important;
+  border-radius: 20px !important;
+  cursor: pointer !important;
+  transition: var(--qp-transition) !important;
+  user-select: none !important;
+  margin: 0 10px !important;
+}
+
+.qp-inpage-theme-toggle:hover {
+  background: rgba(255, 255, 255, 0.25) !important;
+  border-color: #ffffff !important;
+  transform: scale(1.03) !important;
+}
+
+body.qp-dark-mode .qp-inpage-theme-toggle {
+  background: rgba(164, 53, 240, 0.25) !important;
+  border-color: var(--qp-purple) !important;
+  color: #f6e8ff !important;
+}
+
+/* ==========================================================================
+   SSO TEACHABLE PROFILE & ACCOUNT SETTINGS (sso.teachable.com)
+   ========================================================================== */
+body:has(a[href*="current_user"]),
+body.body-content-view,
+body:has(.profile) {
+  background-color: var(--qp-bg-main) !important;
+  color: var(--qp-text-color) !important;
+  font-family: var(--qp-font) !important;
+}
+
+/* Top bar on sso.teachable.com */
+nav.navbar,
+header.header,
+.navbar__header,
+.site-header {
+  background-color: #1c1d1f !important;
+  border-bottom: 1px solid #3e4143 !important;
+  color: #ffffff !important;
+}
+
+/* Profile Left Navigation Sidebar */
+.sidebar,
+nav.side-nav,
+ul.nav-stacked,
+div[class*="sidebar"] {
+  background-color: #ffffff !important;
+  border-right: 1px solid var(--qp-border) !important;
+}
+
+ul.nav-stacked li a,
+nav.side-nav a,
+div[class*="sidebar"] a {
+  color: var(--qp-text-color) !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  padding: 12px 18px !important;
+  transition: var(--qp-transition) !important;
+  border-left: 3px solid transparent !important;
+}
+
+ul.nav-stacked li.active a,
+ul.nav-stacked li a:hover,
+nav.side-nav a.active,
+div[class*="sidebar"] a.active {
+  color: var(--qp-purple) !important;
+  background-color: var(--qp-purple-light) !important;
+  border-left-color: var(--qp-purple) !important;
+  font-weight: 700 !important;
+}
+
+/* Profile Content Panels & Cards */
+.profile-content,
+.main-content,
+.account-card,
+.panel,
+div:has(> h2, > h1) {
+  background-color: #ffffff !important;
+  border-radius: var(--qp-radius-lg) !important;
+}
+
+/* Notification Toggles / Switches */
+input[type="checkbox"]:checked + .slider,
+.toggle-switch input:checked + span {
+  background-color: var(--qp-purple) !important;
+}
+
+/* Edit / Change action links */
+a:has-text("Edit"),
+a:has-text("Change"),
+a.link-primary,
+.text-primary {
+  color: var(--qp-purple) !important;
+  font-weight: 600 !important;
+}
+
+/* ==========================================================================
+   ENROLLED COURSE SYLLABUS (courses/enrolled/*)
+   ========================================================================== */
+body.revamped_lecture_player header,
+body.revamped_lecture_player .course-player__header,
+body:has(.course-sidebar) header {
+  background-color: #1c1d1f !important;
+  border-bottom: 1px solid #3e4143 !important;
+  color: #ffffff !important;
+}
+
+/* Curriculum Header & Breadcrumb */
+.course-mainbar__top-heading,
+.course-mainbar h1,
+.course-mainbar h2 {
+  color: var(--qp-heading-color) !important;
+  font-weight: 700 !important;
+}
+
+/* "Start next lecture" Banner */
+.start-next-lecture-wrapper,
+div:has(> .start-next-lecture),
+div:has(> a.start-next-lecture) {
+  background-color: #ffffff !important;
+  border: 1px solid var(--qp-border) !important;
+  border-radius: var(--qp-radius-lg) !important;
+  padding: 16px 20px !important;
+  margin-bottom: 24px !important;
+  box-shadow: var(--qp-shadow-sm) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+}
+
+/* Sidebar navigation links */
+.course-sidebar .nav li a,
+.course-sidebar a {
+  color: var(--qp-text-color) !important;
+  font-weight: 500 !important;
+}
+
+.course-sidebar .nav li.active a,
+.course-sidebar a.active {
+  color: var(--qp-purple) !important;
+  border-left: 3px solid var(--qp-purple) !important;
+  background-color: var(--qp-purple-light) !important;
+  font-weight: 700 !important;
+}
+
+/* Progress Percentage bar in sidebar */
+.course-progress .progressbar-fill,
+div[style*="--progress-value"] {
+  background-color: var(--qp-purple) !important;
+}
+
+
 

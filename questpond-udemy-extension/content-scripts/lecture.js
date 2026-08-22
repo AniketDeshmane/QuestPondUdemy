@@ -314,6 +314,49 @@
       document.documentElement.classList.remove('qp-dark-mode');
       document.body.classList.remove('qp-dark-mode');
     }
+    updateAllToggleButtons(enabled);
+  }
+
+  // Inject In-Page Theme Toggle Button into Lecture Header
+  function injectInPageThemeToggle() {
+    if (document.getElementById('qp-inpage-theme-toggle')) return;
+
+    const navTargets = [
+      document.querySelector('header .lecture-nav'),
+      document.querySelector('.course-player__header-right'),
+      document.querySelector('header.header nav'),
+      document.querySelector('header')
+    ];
+
+    const targetNav = navTargets.find(el => el !== null);
+    if (!targetNav) return;
+
+    const isDark = document.body.classList.contains('qp-dark-mode');
+    const toggleBtn = document.createElement('button');
+    toggleBtn.id = 'qp-inpage-theme-toggle';
+    toggleBtn.className = 'qp-inpage-theme-toggle';
+    toggleBtn.title = 'Toggle Dark / Light Mode';
+    toggleBtn.innerHTML = isDark ? '☀️ Light' : '🌙 Dark';
+
+    toggleBtn.addEventListener('click', async (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      const currentDark = document.body.classList.contains('qp-dark-mode');
+      const newDark = !currentDark;
+      applyDarkMode(newDark);
+
+      if (chrome?.storage?.local) {
+        await chrome.storage.local.set({ darkMode: newDark });
+      }
+    });
+
+    targetNav.prepend(toggleBtn);
+  }
+
+  function updateAllToggleButtons(isDark) {
+    document.querySelectorAll('.qp-inpage-theme-toggle').forEach(btn => {
+      btn.innerHTML = isDark ? '☀️ Light' : '🌙 Dark';
+    });
   }
 
   // Check stored dark mode preference on load
@@ -335,9 +378,11 @@
   function init() {
     if (!isLecturePage()) return;
     transformLecturePage();
+    injectInPageThemeToggle();
 
     // Observe dynamic lecture navigation (SPA)
     const observer = new MutationObserver(() => {
+      injectInPageThemeToggle();
       if (!document.querySelector('.qp-header-course-title') || !document.querySelector('.qp-tab-panes-wrapper')) {
         transformLecturePage();
       }
