@@ -471,6 +471,9 @@
 
   // Initialization runner
   function init() {
+    // Apply Udemy transform class globally across QuestPond
+    document.body.classList.add('qp-udemy-transformed');
+
     if (!isDashboardPage()) return;
 
     // Check if courses are rendered in DOM
