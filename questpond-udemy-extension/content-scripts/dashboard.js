@@ -768,35 +768,36 @@
     // Apply Udemy transform class globally across QuestPond
     document.body.classList.add('qp-udemy-transformed');
 
-    // Run enhancements for Next.js app pages and inject navbar theme button
+    // Initial run
     enhanceTeachableDashboard();
     enhanceProductCatalog();
     enhanceEnrolledCoursePage();
     injectInPageThemeToggle();
 
-    if (!isDashboardPage()) return;
+    // Universal Mutation Observer for React SPA / Asynchronous rendering
+    const universalObserver = new MutationObserver(() => {
+      injectInPageThemeToggle();
+      enhanceTeachableDashboard();
+      enhanceProductCatalog();
+      enhanceEnrolledCoursePage();
 
-    // Check if courses are rendered in DOM on /p/questvideos
-    const courses = extractCourses();
-    if (courses.length > 0) {
-      renderUdemyDashboard(courses);
-      window.__qp_dashboard_initialized = true;
-      console.log(`[QuestPond Beautifier] Dashboard transformed with ${courses.length} courses!`);
-    } else {
-      // If DOM elements render asynchronously, observe DOM
-      const observer = new MutationObserver(() => {
-        injectInPageThemeToggle();
-        enhanceTeachableDashboard();
-        enhanceProductCatalog();
-        enhanceEnrolledCoursePage();
+      if (isDashboardPage() && !window.__qp_dashboard_initialized) {
         const deferredCourses = extractCourses();
-        if (deferredCourses.length > 0 && !window.__qp_dashboard_initialized) {
-          observer.disconnect();
+        if (deferredCourses.length > 0) {
           renderUdemyDashboard(deferredCourses);
           window.__qp_dashboard_initialized = true;
         }
-      });
-      observer.observe(document.body, { childList: true, subtree: true });
+      }
+    });
+    universalObserver.observe(document.body, { childList: true, subtree: true });
+
+    if (isDashboardPage()) {
+      const courses = extractCourses();
+      if (courses.length > 0) {
+        renderUdemyDashboard(courses);
+        window.__qp_dashboard_initialized = true;
+        console.log(`[QuestPond Beautifier] Legacy Dashboard transformed with ${courses.length} courses!`);
+      }
     }
   }
 

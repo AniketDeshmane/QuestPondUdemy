@@ -84,8 +84,10 @@ body.qp-udemy-transformed button.InProgressCourseTileResumeButton,
 body.qp-udemy-transformed a.InProgressCourseTileResumeButton,
 body.qp-udemy-transformed button.ProductCardCTA,
 body.qp-udemy-transformed a.ProductCardCTA,
+body.qp-udemy-transformed span.ProductCardCTA,
 body.qp-udemy-transformed .qp-btn-purple,
 body.qp-udemy-transformed button.bg-primary,
+body.qp-udemy-transformed span.bg-primary,
 body.qp-udemy-transformed button[id^="heap_product-card-cta"] {
   background-color: var(--qp-purple) !important;
   color: #ffffff !important;
@@ -105,8 +107,10 @@ body.qp-udemy-transformed button.InProgressCourseTileResumeButton:hover,
 body.qp-udemy-transformed a.InProgressCourseTileResumeButton:hover,
 body.qp-udemy-transformed button.ProductCardCTA:hover,
 body.qp-udemy-transformed a.ProductCardCTA:hover,
+body.qp-udemy-transformed span.ProductCardCTA:hover,
 body.qp-udemy-transformed .qp-btn-purple:hover,
 body.qp-udemy-transformed button.bg-primary:hover,
+body.qp-udemy-transformed span.bg-primary:hover,
 body.qp-udemy-transformed button[id^="heap_product-card-cta"]:hover {
   background-color: var(--qp-purple-hover) !important;
   box-shadow: 0 4px 14px rgba(164, 53, 240, 0.4) !important;
