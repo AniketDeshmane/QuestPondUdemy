@@ -1,7 +1,7 @@
 /* QuestPond Udemy Beautifier - Common Design System & Variables */
 
 :root {
-  --qp-font: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --qp-font: 'udemy sans', 'sf pro text', -apple-system, BlinkMacSystemFont, Roboto, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
   --qp-purple: #a435f0;
   --qp-purple-hover: #8710d8;
   --qp-purple-light: #f6e8ff;
@@ -342,7 +342,7 @@ body.qp-dark-mode a[href*="in_progress"],
 body.qp-dark-mode .btn-default,
 body.qp-dark-mode .btn-secondary {
   background-color: #2d2f31 !important;
-  border-color: #55595d !important;
+  border: 1px solid #ffffff !important;
   color: #ffffff !important;
 }
 
@@ -746,6 +746,7 @@ body.qp-dark-mode .course-mainbar .course-section {
   justify-content: space-between !important;
 }
 
+body.qp-dark-mode .enrolled-course-layout .course-mainbar .course-section .section-title,
 body.qp-dark-mode .course-mainbar .course-section .section-title {
   background-color: #242628 !important;
   border-color: #3e4143 !important;
@@ -765,27 +766,38 @@ body.qp-dark-mode .course-mainbar .course-section .section-title {
   transition: var(--qp-transition) !important;
 }
 
-body.qp-dark-mode .course-mainbar,
-body.qp-dark-mode .course-mainbar .course-section,
-body.qp-dark-mode .course-mainbar ul.section-list,
-body.qp-dark-mode .course-mainbar li.section-item {
+/* Nuclear dark mode for enrolled course layout */
+body.qp-dark-mode .enrolled-course-layout,
+body.qp-dark-mode .enrolled-course-layout .course-mainbar,
+body.qp-dark-mode .enrolled-course-layout .course-section,
+body.qp-dark-mode .enrolled-course-layout ul.section-list,
+body.qp-dark-mode .enrolled-course-layout li.section-item,
+body.qp-dark-mode .enrolled-course-layout li.section-item a.item {
   background-color: #1c1d1f !important;
+  color: #f7f9fa !important;
+}
+
+body.qp-dark-mode .enrolled-course-layout .course-mainbar li.section-item {
   border-bottom: 1px solid #2d2f31 !important;
 }
 
-.course-mainbar li.section-item:hover {
-  background-color: #f7f9fa !important;
-}
-
-body.qp-dark-mode .course-mainbar li.section-item:hover,
-body.qp-dark-mode .course-mainbar a.item:hover {
+body.qp-dark-mode .enrolled-course-layout .course-mainbar li.section-item:hover,
+body.qp-dark-mode .enrolled-course-layout .course-mainbar a.item:hover {
   background-color: #2d2f31 !important;
 }
 
-body.qp-dark-mode .course-mainbar li.section-item.completed,
-body.qp-dark-mode .course-mainbar li.section-item.active,
-body.qp-dark-mode .course-mainbar li.section-item.selected {
-  background-color: #2a1b38 !important;
+body.qp-dark-mode .enrolled-course-layout .course-mainbar li.section-item.completed,
+body.qp-dark-mode .enrolled-course-layout .course-mainbar li.section-item.active,
+body.qp-dark-mode .enrolled-course-layout .course-mainbar li.section-item.selected,
+body.qp-dark-mode .enrolled-course-layout li.section-item.next-lecture {
+  background-color: #322340 !important;
+  border-left: 4px solid #a435f0 !important;
+}
+
+body.qp-dark-mode .enrolled-course-layout .lecture-icon svg,
+body.qp-dark-mode .enrolled-course-layout .lecture-icon {
+  color: #cfd4dc !important;
+  fill: #cfd4dc !important;
 }
 
 .course-mainbar li.section-item a.item {
@@ -793,11 +805,6 @@ body.qp-dark-mode .course-mainbar li.section-item.selected {
   display: flex !important;
   align-items: center !important;
   text-decoration: none !important;
-}
-
-body.qp-dark-mode .course-mainbar a.item {
-  background-color: transparent !important;
-  color: #f7f9fa !important;
 }
 
 .course-mainbar .title-container {

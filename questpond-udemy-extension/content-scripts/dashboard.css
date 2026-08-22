@@ -1490,10 +1490,17 @@ body.qp-dark-mode .qp-stats-bar {
    WEEKEND TRAINING PAGE (/p/weekendtraining)
    ========================================================================== */
 /* Hide the blank placeholder spacer block */
+/* Hide the blank placeholder spacer block */
 #block-217584544,
 .b-217584544-top,
 .b-217584544-bottom,
 .b-217584544-background_color {
+  display: none !important;
+}
+
+body.qp-dark-mode .blocks-page .course-block:empty,
+body.qp-dark-mode .blocks-page .course-block:has(> div:empty:only-child),
+body.qp-dark-mode [class*="background_color"]:not(:has(h1, h2, h3, h4, p, img, table, ul, a)) {
   display: none !important;
 }
 

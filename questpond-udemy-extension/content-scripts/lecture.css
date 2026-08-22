@@ -718,11 +718,25 @@ body.qp-dark-mode li.section-item.active {
   border-left: 4px solid var(--qp-purple) !important;
 }
 
+body.qp-dark-mode #courseSidebar .section-item .title-container .lecture-name,
+body.qp-dark-mode #courseSidebar .section-item .lecture-name,
+body.qp-dark-mode #courseSidebar li a span.lecture-name,
 body.qp-dark-mode #courseSidebar .lecture-name,
 body.qp-dark-mode .course-sidebar .lecture-name,
 body.qp-dark-mode .lecture-sidebar .lecture-name,
 body.qp-dark-mode .lecture-name {
   color: #f7f9fa !important;
+  opacity: 1 !important;
+}
+
+body.qp-dark-mode #courseSidebar .course-progress-percentage,
+body.qp-dark-mode #courseSidebar .small {
+  color: #cfd4dc !important;
+  opacity: 1 !important;
+}
+
+body.qp-dark-mode #courseSidebar {
+  background: #1c1d1f !important;
 }
 
 body.qp-dark-mode #courseSidebar li.section-item.active .lecture-name,

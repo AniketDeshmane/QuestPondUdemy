@@ -496,9 +496,10 @@
       const titleEl = card.querySelector('h2, h3, h4, [class*="font-semibold"], [class*="font-bold"], [class*="title"]');
       const textLines = (card.innerText || card.textContent || '').split('\n').map(s => s.trim()).filter(Boolean);
       title = (titleEl?.textContent || textLines[0] || '').trim();
+      const firstLineText = textLines[0] || '';
 
-      const fullCardText = (title + ' ' + (card.innerText || '') + ' ' + (card.getAttribute('href') || '')).toLowerCase();
-      const theme = getTechTheme(title, fullCardText);
+      const fullCardText = (title + ' ' + (card.innerText || '') + ' ' + (card.getAttribute('href') || '') + ' ' + firstLineText).toLowerCase();
+      const theme = getTechTheme(title || firstLineText, fullCardText);
 
       // Re-image legacy/ugly yellow bitmaps with high-taste gradient artwork
       const imgContainer = card.querySelector('.aspect-video, [class*="w-48"], [class*="w-56"], [class*="w-64"], img')?.parentElement || card.firstElementChild;
@@ -539,10 +540,12 @@
     });
 
     // Add motivational streak banner on /l/dashboard if not present
-    const mainHeading = document.querySelector('main h1, [data-sentry-component="DashboardInProgress"]');
-    if (mainHeading && !document.querySelector('.qp-dashboard-streak-banner')) {
+    const inProgressContainer = document.querySelector('[data-sentry-component="DashboardInProgress"]');
+    const mainHeading = document.querySelector('main h1');
+    if ((inProgressContainer || mainHeading) && !document.querySelector('.qp-dashboard-streak-banner')) {
       const banner = document.createElement('div');
       banner.className = 'qp-dashboard-streak-banner';
+      banner.style.marginTop = '16px';
       banner.innerHTML = `
         <div>
           <h3 class="qp-streak-title" style="font-size: 16px; font-weight: 700; margin: 0 0 4px 0;">⚡ Daily Learning Goal</h3>
@@ -552,7 +555,11 @@
           <div style="width: 42px; height: 42px; border-radius: 50%; border: 3px solid #a435f0; display: flex; align-items: center; justify-content: center; font-weight: 700; color: #a435f0; font-size: 13px;">86%</div>
         </div>
       `;
-      mainHeading.parentNode.insertBefore(banner, mainHeading.nextSibling);
+      if (inProgressContainer) {
+        inProgressContainer.insertBefore(banner, inProgressContainer.firstChild);
+      } else if (mainHeading) {
+        mainHeading.parentNode.insertBefore(banner, mainHeading.nextSibling);
+      }
     }
   }
 
@@ -572,9 +579,10 @@
       const titleEl = card.querySelector('h2.ProductTitle, h2, h3, [class*="font-semibold"], [class*="font-bold"], [class*="title"]');
       const textLines = (card.innerText || card.textContent || '').split('\n').map(s => s.trim()).filter(Boolean);
       title = (titleEl?.textContent || textLines[0] || '').trim();
+      const firstLineText = textLines[0] || '';
 
-      const fullCardText = (title + ' ' + (card.innerText || '') + ' ' + (card.getAttribute('href') || '')).toLowerCase();
-      const theme = getTechTheme(title, fullCardText);
+      const fullCardText = (title + ' ' + (card.innerText || '') + ' ' + (card.getAttribute('href') || '') + ' ' + firstLineText).toLowerCase();
+      const theme = getTechTheme(title || firstLineText, fullCardText);
       const img = card.querySelector('img');
       const imgContainer = img?.parentElement || card.querySelector('.aspect-video') || card.firstElementChild;
 
