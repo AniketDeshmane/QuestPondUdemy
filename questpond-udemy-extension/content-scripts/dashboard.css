@@ -812,8 +812,8 @@ input#heap_product-search:focus {
   border-color: #1c1d1f !important;
 }
 
-/* Product Cards Grid */
-div[data-sentry-component="ProductCardList"] > .grid {
+/* Product Cards Grid (Only apply to real loaded card list, do not force display on pending skeleton) */
+div[data-sentry-component="ProductCardList"] .group-has-data-pending\:hidden {
   display: grid !important;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)) !important;
   gap: 24px !important;
@@ -858,7 +858,8 @@ div[data-sentry-component="ProductCardList"] > .grid {
   overflow: hidden !important;
 }
 
-.ProductCard .ProgressBar .progress-indicator {
+.ProductCard .ProgressBar .progress-indicator,
+.ProductCard .ProgressBar div[style*="--progress-value"] {
   background-color: var(--qp-purple) !important;
 }
 
@@ -867,6 +868,130 @@ div[data-sentry-component="ProductCardList"] > .grid {
   font-weight: 700 !important;
   font-size: 13px !important;
 }
+
+/* ==========================================================================
+   TEACHABLE STUDENT DASHBOARD (/l/dashboard)
+   ========================================================================== */
+body:has(a[href*="/l/dashboard"]),
+body:has([data-sentry-component="DashboardInProgress"]) {
+  background-color: var(--qp-bg-main) !important;
+  font-family: var(--qp-font) !important;
+}
+
+/* Welcome Greeting */
+main h1,
+main h1[class*="text-"] {
+  font-size: 28px !important;
+  font-weight: 700 !important;
+  color: var(--qp-heading-color) !important;
+  letter-spacing: -0.5px !important;
+  margin: 32px 0 24px 0 !important;
+}
+
+/* "Jump back in" Heading & Subheaders */
+main h2,
+main h2[class*="text-"] {
+  font-size: 20px !important;
+  font-weight: 700 !important;
+  color: var(--qp-heading-color) !important;
+}
+
+/* "View in-progress courses" Button */
+a[href*="in_progress"],
+button:has-text("View in-progress courses") {
+  border: 1px solid var(--qp-heading-color) !important;
+  color: var(--qp-heading-color) !important;
+  background: #ffffff !important;
+  font-weight: 700 !important;
+  font-size: 14px !important;
+  border-radius: var(--qp-radius) !important;
+  padding: 8px 16px !important;
+  transition: var(--qp-transition) !important;
+}
+
+a[href*="in_progress"]:hover {
+  background: #f2f3f5 !important;
+}
+
+/* In-Progress Course Card Container */
+div[data-sentry-component="DashboardTile"],
+div[data-sentry-source-file="DashboardInProgress.tsx"] > div,
+div:has(> a[href*="/courses/"]) {
+  /* Clean card design */
+}
+
+/* In-Progress Cards on /l/dashboard */
+a[href*="/courses/"][class*="border"] {
+  background-color: #ffffff !important;
+  border: 1px solid var(--qp-border) !important;
+  border-radius: var(--qp-radius-lg) !important;
+  overflow: hidden !important;
+  box-shadow: var(--qp-shadow-sm) !important;
+  transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+  margin-bottom: 20px !important;
+}
+
+a[href*="/courses/"][class*="border"]:hover {
+  transform: translateY(-3px) !important;
+  box-shadow: var(--qp-shadow-md) !important;
+}
+
+/* Course Title in /l/dashboard */
+a[href*="/courses/"] h3,
+a[href*="/courses/"] [class*="font-semibold"],
+a[href*="/courses/"] [class*="font-bold"] {
+  color: var(--qp-heading-color) !important;
+  font-size: 17px !important;
+  font-weight: 700 !important;
+}
+
+/* Next Lesson info */
+a[href*="/courses/"] p,
+a[href*="/courses/"] [class*="text-neutral-500"],
+a[href*="/courses/"] [class*="text-gray"] {
+  color: var(--qp-text-muted) !important;
+  font-size: 13px !important;
+}
+
+/* Progress bar in /l/dashboard */
+div[role="progressbar"],
+div[class*="bg-neutral-200"],
+div[class*="bg-gray-200"] {
+  background-color: #e4e8eb !important;
+  height: 6px !important;
+  border-radius: 3px !important;
+  overflow: hidden !important;
+}
+
+div[role="progressbar"] > div,
+div[style*="--progress-value"],
+div[class*="bg-primary"],
+div[class*="bg-brand_primary"] {
+  background-color: var(--qp-purple) !important;
+}
+
+/* Resume Course Button */
+span:has-text("Resume course"),
+button:has-text("Resume course"),
+a:has-text("Resume course"),
+span[class*="bg-primary"],
+div[class*="bg-primary"],
+[class*="bg-blue-600"] {
+  background-color: var(--qp-purple) !important;
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  font-size: 14px !important;
+  border-radius: var(--qp-radius) !important;
+  border: none !important;
+  transition: var(--qp-transition) !important;
+}
+
+span:has-text("Resume course"):hover,
+[class*="bg-blue-600"]:hover {
+  background-color: var(--qp-purple-hover) !important;
+  box-shadow: 0 2px 8px rgba(164, 53, 240, 0.35) !important;
+}
+
 
 /* ==========================================================================
    WEEKEND TRAINING PAGE (/p/weekendtraining)

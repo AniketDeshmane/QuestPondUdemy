@@ -469,14 +469,98 @@
     }
   }
 
+  // Enhance Teachable student dashboard (/l/dashboard)
+  function enhanceTeachableDashboard() {
+    if (!window.location.pathname.includes('/l/dashboard') && !document.querySelector('[data-sentry-component="DashboardInProgress"]')) {
+      return;
+    }
+
+    // In-progress cards
+    const cards = document.querySelectorAll('a[href*="/courses/"]');
+    cards.forEach(card => {
+      if (card.dataset.enhanced) return;
+      card.dataset.enhanced = 'true';
+
+      const titleEl = card.querySelector('h2, h3, [class*="font-semibold"], [class*="font-bold"]');
+      const title = titleEl ? titleEl.textContent.trim() : '';
+      if (!title) return;
+
+      const theme = getTechTheme(title);
+
+      // Check image or broken image
+      const imgContainer = card.querySelector('.aspect-video, [class*="w-48"], [class*="w-56"], [class*="w-64"], img')?.parentElement || card.firstElementChild;
+      const img = card.querySelector('img');
+
+      if (imgContainer && (!img || !img.src || img.naturalWidth === 0 || img.alt.includes('Product image for'))) {
+        const placeholder = document.createElement('div');
+        placeholder.style.cssText = `
+          width: 180px;
+          min-width: 180px;
+          height: 100%;
+          min-height: 110px;
+          background: ${theme.bg};
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          color: #ffffff;
+          padding: 12px;
+          text-align: center;
+          border-radius: 4px;
+        `;
+        placeholder.innerHTML = `
+          <div style="font-size: 28px; margin-bottom: 4px;">${theme.icon}</div>
+          <div style="font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;">${theme.tag}</div>
+        `;
+        
+        if (img) {
+          img.replaceWith(placeholder);
+        } else if (imgContainer) {
+          imgContainer.prepend(placeholder);
+        }
+      }
+    });
+
+    // Add motivational streak banner on /l/dashboard if not present
+    const mainHeading = document.querySelector('main h1, [data-sentry-component="DashboardInProgress"]');
+    if (mainHeading && !document.querySelector('.qp-dashboard-streak-banner')) {
+      const banner = document.createElement('div');
+      banner.className = 'qp-dashboard-streak-banner';
+      banner.style.cssText = `
+        background: #ffffff;
+        border: 1px solid #d1d7dc;
+        border-radius: 8px;
+        padding: 20px 24px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 24px 0 32px 0;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.06);
+      `;
+      banner.innerHTML = `
+        <div>
+          <h3 style="font-size: 16px; font-weight: 700; color: #1c1d1f; margin: 0 0 4px 0;">⚡ Daily Learning Goal</h3>
+          <p style="font-size: 13px; color: #6a6f73; margin: 0;">Keep up the momentum! Watch 1 lesson today to maintain your weekly streak.</p>
+        </div>
+        <div style="display: flex; align-items: center; gap: 12px;">
+          <div style="width: 42px; height: 42px; border-radius: 50%; border: 3px solid #a435f0; display: flex; align-items: center; justify-content: center; font-weight: 700; color: #a435f0; font-size: 13px;">86%</div>
+        </div>
+      `;
+      mainHeading.parentNode.insertBefore(banner, mainHeading.nextSibling);
+    }
+  }
+
   // Initialization runner
   function init() {
     // Apply Udemy transform class globally across QuestPond
     document.body.classList.add('qp-udemy-transformed');
 
+    // Run Teachable student dashboard enhancement
+    enhanceTeachableDashboard();
+
     if (!isDashboardPage()) return;
 
-    // Check if courses are rendered in DOM
+    // Check if courses are rendered in DOM on /p/questvideos
     const courses = extractCourses();
     if (courses.length > 0) {
       renderUdemyDashboard(courses);
@@ -485,8 +569,9 @@
     } else {
       // If DOM elements render asynchronously, observe DOM
       const observer = new MutationObserver(() => {
+        enhanceTeachableDashboard();
         const deferredCourses = extractCourses();
-        if (deferredCourses.length > 0) {
+        if (deferredCourses.length > 0 && !window.__qp_dashboard_initialized) {
           observer.disconnect();
           renderUdemyDashboard(deferredCourses);
           window.__qp_dashboard_initialized = true;
