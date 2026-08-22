@@ -29,11 +29,11 @@
   --qp-shadow-md: 0 4px 12px rgba(0, 0, 0, 0.12);
   --qp-shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.15);
   
-  --qp-radius: 4px;
-  --qp-radius-lg: 8px;
+  --qp-radius: 6px;
+  --qp-radius-lg: 10px;
   --qp-radius-pill: 9999px;
   
-  --qp-transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  --qp-transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 /* Base resets for modern typography and readability */
@@ -41,8 +41,10 @@ body.qp-udemy-transformed {
   font-family: var(--qp-font) !important;
   background-color: var(--qp-bg-main) !important;
   color: var(--qp-text-color) !important;
-  line-height: 1.5 !important;
+  line-height: 1.55 !important;
   -webkit-font-smoothing: antialiased !important;
+  -moz-osx-font-smoothing: grayscale !important;
+  text-rendering: optimizeLegibility !important;
 }
 
 body.qp-udemy-transformed * {
@@ -56,16 +58,16 @@ body.qp-udemy-transformed ::-webkit-scrollbar {
 }
 
 body.qp-udemy-transformed ::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: #141517;
 }
 
 body.qp-udemy-transformed ::-webkit-scrollbar-thumb {
-  background: #c1c7cd;
+  background: #3e4143;
   border-radius: 4px;
 }
 
 body.qp-udemy-transformed ::-webkit-scrollbar-thumb:hover {
-  background: #8a9199;
+  background: #55595d;
 }
 
 /* ==========================================================================
@@ -103,7 +105,19 @@ body.qp-udemy-transformed .qp-btn-purple:hover,
 body.qp-udemy-transformed button.bg-primary:hover,
 body.qp-udemy-transformed a[id^="heap_product-card-cta"]:hover > div {
   background-color: var(--qp-purple-hover) !important;
-  box-shadow: 0 2px 8px rgba(164, 53, 240, 0.35) !important;
+  box-shadow: 0 4px 14px rgba(164, 53, 240, 0.4) !important;
+  transform: translateY(-1px) !important;
+}
+
+body.qp-udemy-transformed .btn-primary:active,
+body.qp-udemy-transformed .start-next-lecture:active,
+body.qp-udemy-transformed .lecture-complete:active,
+body.qp-udemy-transformed .InProgressCourseTileResumeButton:active,
+body.qp-udemy-transformed .ProductCardCTA:active,
+body.qp-udemy-transformed .qp-btn-purple:active,
+body.qp-udemy-transformed button.bg-primary:active,
+body.qp-udemy-transformed a[id^="heap_product-card-cta"]:active > div {
+  transform: scale(0.98) !important;
 }
 
 /* 2. Secondary & Outline Action Buttons (Udemy Dark Outline) */
