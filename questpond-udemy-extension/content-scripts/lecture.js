@@ -324,7 +324,9 @@
     const navTargets = [
       document.querySelector('header .lecture-nav'),
       document.querySelector('.course-player__header-right'),
+      document.querySelector('ul.navbar__menu'),
       document.querySelector('header.header nav'),
+      document.querySelector('header nav'),
       document.querySelector('header')
     ];
 
@@ -350,7 +352,16 @@
       }
     });
 
-    targetNav.appendChild(toggleBtn);
+    if (targetNav.tagName === 'UL') {
+      const userDropdown = targetNav.querySelector('.user-dropdown') || targetNav.lastElementChild;
+      if (userDropdown && userDropdown !== targetNav.firstElementChild) {
+        targetNav.insertBefore(toggleBtn, userDropdown);
+      } else {
+        targetNav.appendChild(toggleBtn);
+      }
+    } else {
+      targetNav.appendChild(toggleBtn);
+    }
   }
 
   function updateAllToggleButtons(isDark) {

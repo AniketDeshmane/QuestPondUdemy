@@ -15,102 +15,167 @@ body.qp-udemy-transformed .qp-original-catalog {
 /* --- UDEMY NAVBAR RESTYLING --- */
 body.qp-udemy-transformed header#header,
 body.qp-udemy-transformed nav#navbar,
+body.qp-udemy-transformed .navbar,
 body.qp-udemy-transformed .global-context__navbar {
   background-color: var(--qp-bg-navbar) !important;
   border-bottom: 1px solid #3e4143 !important;
   color: #ffffff !important;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2) !important;
+  height: 64px !important;
   min-height: 64px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  padding: 0 32px !important;
+  position: relative !important;
+  z-index: 1000 !important;
+}
+
+body.qp-udemy-transformed .navbar__header {
+  display: flex !important;
+  align-items: center !important;
+  height: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+body.qp-udemy-transformed .navbar__header__logolink,
+body.qp-udemy-transformed .navbar-brand {
+  display: flex !important;
+  align-items: center !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  text-decoration: none !important;
 }
 
 body.qp-udemy-transformed .navbar__header__logolink img,
-body.qp-udemy-transformed .navbar-brand-logo {
-  max-height: 38px !important;
-  filter: brightness(1.1);
-  border-radius: 4px;
+body.qp-udemy-transformed .navbar-brand-logo,
+body.qp-udemy-transformed .navbar-brand img {
+  height: 36px !important;
+  max-height: 36px !important;
+  width: auto !important;
+  object-fit: contain !important;
+  border-radius: 4px !important;
+  background-color: #ffffff !important;
+  padding: 2px 6px !important;
 }
 
+body.qp-udemy-transformed .navbar__menu,
+body.qp-udemy-transformed ul.navbar__menu__list,
+body.qp-udemy-transformed .nav.navbar-nav {
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+  list-style: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  height: 100% !important;
+}
+
+body.qp-udemy-transformed .navbar__menu__item,
+body.qp-udemy-transformed .navbar__menu__list > li {
+  display: flex !important;
+  align-items: center !important;
+  height: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+body.qp-udemy-transformed .navbar__menu__item a,
 body.qp-udemy-transformed .navbar__menu__list > li > a,
 body.qp-udemy-transformed .nav.navbar-nav li a {
   color: #cfd4dc !important;
   font-weight: 500 !important;
   font-size: 14px !important;
-  padding: 10px 16px !important;
+  padding: 8px 12px !important;
+  border-bottom: 3px solid transparent !important;
   transition: var(--qp-transition) !important;
+  text-decoration: none !important;
+  display: flex !important;
+  align-items: center !important;
+  height: 100% !important;
 }
 
-body.qp-udemy-transformed .navbar__menu__list > li > a:hover,
-body.qp-udemy-transformed .nav.navbar-nav li a:hover {
+body.qp-udemy-transformed .navbar__menu__item a:hover,
+body.qp-udemy-transformed .navbar__menu__list > li > a:hover {
   color: #ffffff !important;
-  background: rgba(255, 255, 255, 0.08) !important;
-  border-radius: 4px;
 }
 
+body.qp-udemy-transformed .navbar__menu__item a.current,
 body.qp-udemy-transformed .navbar__menu__list a.current {
   color: #ffffff !important;
-  border-bottom: 2px solid var(--qp-purple) !important;
-}
-
-body.qp-udemy-transformed .navbar__current-user {
-  color: #ffffff !important;
-  font-weight: 600 !important;
+  font-weight: 700 !important;
+  border-bottom-color: var(--qp-purple) !important;
 }
 
 body.qp-udemy-transformed img.gravatar {
+  width: 34px !important;
+  height: 34px !important;
   border-radius: 50% !important;
   border: 2px solid var(--qp-purple) !important;
+  cursor: pointer !important;
+  transition: var(--qp-transition) !important;
+}
+
+body.qp-udemy-transformed img.gravatar:hover {
+  transform: scale(1.05) !important;
+  box-shadow: 0 0 8px rgba(164, 53, 240, 0.5) !important;
 }
 
 /* --- UDEMY "MY LEARNING" HERO SECTION --- */
 .qp-udemy-hero {
-  background-color: #1c1d1f;
-  color: #ffffff;
-  padding: 32px 48px 0 48px;
-  margin-bottom: 24px;
+  background-color: #1c1d1f !important;
+  color: #ffffff !important;
+  padding: 40px 32px 0 32px !important;
+  margin-bottom: 28px !important;
+  border-bottom: 1px solid #3e4143 !important;
 }
 
 .qp-udemy-hero-title {
-  font-size: 32px;
-  font-weight: 700;
-  letter-spacing: -0.5px;
-  margin: 0 0 24px 0;
-  font-family: var(--qp-font);
-  color: #ffffff;
+  font-size: 32px !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.5px !important;
+  margin: 0 0 24px 0 !important;
+  font-family: var(--qp-font) !important;
+  color: #ffffff !important;
 }
 
 .qp-udemy-tabs {
-  display: flex;
-  gap: 24px;
-  border-bottom: 1px solid #3e4143;
-  overflow-x: auto;
+  display: flex !important;
+  gap: 24px !important;
+  border: none !important;
+  overflow-x: auto !important;
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
 .qp-udemy-tab {
-  color: #cfd4dc;
-  font-weight: 700;
-  font-size: 16px;
-  padding: 12px 4px;
-  cursor: pointer;
-  border-bottom: 3px solid transparent;
-  transition: var(--qp-transition);
-  white-space: nowrap;
-  user-select: none;
+  color: #cfd4dc !important;
+  font-weight: 600 !important;
+  font-size: 15px !important;
+  padding: 12px 2px !important;
+  cursor: pointer !important;
+  border-bottom: 3px solid transparent !important;
+  transition: var(--qp-transition) !important;
+  white-space: nowrap !important;
+  user-select: none !important;
 }
 
 .qp-udemy-tab:hover {
-  color: #ffffff;
+  color: #ffffff !important;
 }
 
 .qp-udemy-tab.active {
-  color: #ffffff;
-  border-bottom-color: #ffffff;
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  border-bottom-color: #ffffff !important;
 }
 
 /* --- MAIN CONTAINER --- */
 .qp-udemy-container {
-  max-width: 1440px;
-  margin: 0 auto;
-  padding: 0 48px 48px 48px;
+  max-width: 1440px !important;
+  margin: 0 auto !important;
+  padding: 0 32px 48px 32px !important;
 }
 
 /* --- STREAK & LEARNING CARDS --- */
@@ -1337,6 +1402,27 @@ body.qp-dark-mode .qp-pill.active {
   border-color: var(--qp-purple) !important;
 }
 
+body.qp-dark-mode .qp-pill.active-filter {
+  background: #ffffff !important;
+  border-color: #ffffff !important;
+  color: #1c1d1f !important;
+  font-weight: 700 !important;
+}
+
+body.qp-dark-mode .qp-interview-toggle-pill {
+  background: #2d2f31 !important;
+  border-color: #3e4143 !important;
+  color: #f7f9fa !important;
+}
+
+body.qp-dark-mode .qp-slider {
+  background-color: #55595d !important;
+}
+
+body.qp-dark-mode input:checked + .qp-slider {
+  background-color: var(--qp-purple) !important;
+}
+
 body.qp-dark-mode .qp-sort-select {
   color: #ffffff !important;
 }
@@ -1344,5 +1430,6 @@ body.qp-dark-mode .qp-sort-select {
 body.qp-dark-mode .qp-stats-bar {
   color: #cfd4dc !important;
 }
+
 
 

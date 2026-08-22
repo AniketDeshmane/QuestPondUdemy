@@ -613,12 +613,14 @@
     if (document.getElementById('qp-inpage-theme-toggle')) return;
 
     const navTargets = [
+      document.querySelector('ul.navbar__menu'),
       document.querySelector('nav.NavigationBar section.flex.gap-4'),
       document.querySelector('ul#hamburger-menu'),
-      document.querySelector('.navbar__menu'),
+      document.querySelector('.navbar__menu__list'),
       document.querySelector('#site-header nav'),
       document.querySelector('header .lecture-nav'),
       document.querySelector('.course-player__header-right'),
+      document.querySelector('header.student-settings-header'),
       document.querySelector('header.header nav'),
       document.querySelector('header nav'),
       document.querySelector('header')
@@ -646,7 +648,16 @@
       }
     });
 
-    targetNav.appendChild(toggleBtn);
+    if (targetNav.tagName === 'UL') {
+      const userDropdown = targetNav.querySelector('.user-dropdown') || targetNav.lastElementChild;
+      if (userDropdown && userDropdown !== targetNav.firstElementChild) {
+        targetNav.insertBefore(toggleBtn, userDropdown);
+      } else {
+        targetNav.appendChild(toggleBtn);
+      }
+    } else {
+      targetNav.appendChild(toggleBtn);
+    }
   }
 
   function updateAllToggleButtons(isDark) {
