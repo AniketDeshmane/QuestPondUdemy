@@ -842,6 +842,85 @@ body:has([data-sentry-component="DashboardTile"]) div[data-sentry-component="Das
   display: none !important;
 }
 
+/* ==========================================================================
+   SSO TEACHABLE & USER ACCOUNT SETTINGS (/current_user/*, sso.teachable.com)
+   ========================================================================== */
+body.qp-dark-mode .user-profile-header,
+body.qp-dark-mode .settings-header,
+body.qp-dark-mode .account-settings-header {
+  color: #ffffff !important;
+}
+
+body.qp-dark-mode .panel,
+body.qp-dark-mode .well,
+body.qp-dark-mode .list-group,
+body.qp-dark-mode .form-card,
+body.qp-dark-mode .card,
+body.qp-dark-mode fieldset {
+  background-color: #222427 !important;
+  border: 1px solid #33363b !important;
+  border-radius: 8px !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
+}
+
+body.qp-dark-mode .list-group-item {
+  background-color: #222427 !important;
+  border-color: #33363b !important;
+  color: #f7f9fa !important;
+}
+
+body.qp-dark-mode .list-group-item:hover {
+  background-color: #2a2c30 !important;
+}
+
+body.qp-dark-mode input[type="text"],
+body.qp-dark-mode input[type="email"],
+body.qp-dark-mode input[type="password"],
+body.qp-dark-mode input[type="tel"],
+body.qp-dark-mode textarea,
+body.qp-dark-mode select {
+  background-color: #1c1d1f !important;
+  border: 1px solid #3e4143 !important;
+  color: #ffffff !important;
+  border-radius: 6px !important;
+  padding: 10px 14px !important;
+  font-size: 14px !important;
+  outline: none !important;
+  transition: var(--qp-transition) !important;
+}
+
+body.qp-dark-mode input[type="text"]:focus,
+body.qp-dark-mode input[type="email"]:focus,
+body.qp-dark-mode input[type="password"]:focus,
+body.qp-dark-mode select:focus,
+body.qp-dark-mode textarea:focus {
+  border-color: var(--qp-purple) !important;
+  box-shadow: 0 0 0 2px rgba(164, 53, 240, 0.35) !important;
+}
+
+body.qp-dark-mode label,
+body.qp-dark-mode .control-label,
+body.qp-dark-mode .form-label {
+  color: #cfd4dc !important;
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  margin-bottom: 6px !important;
+}
+
+body.qp-dark-mode .help-block,
+body.qp-dark-mode .text-muted,
+body.qp-dark-mode .form-text {
+  color: #949a9e !important;
+  font-size: 12px !important;
+}
+
+body.qp-dark-mode .gravatar,
+body.qp-dark-mode .user-avatar,
+body.qp-dark-mode img.avatar {
+  border-radius: 50% !important;
+  border: 2px solid var(--qp-purple) !important;
+}
+
 
 
 
