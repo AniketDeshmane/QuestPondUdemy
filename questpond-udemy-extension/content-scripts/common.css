@@ -60,10 +60,131 @@ body.qp-udemy-transformed ::-webkit-scrollbar-track {
 }
 
 body.qp-udemy-transformed ::-webkit-scrollbar-thumb {
-  background: #c1c1c1;
+  background: #c1c7cd;
   border-radius: 4px;
 }
 
 body.qp-udemy-transformed ::-webkit-scrollbar-thumb:hover {
-  background: #999;
+  background: #8a9199;
 }
+
+/* ==========================================================================
+   UNIVERSAL UDEMY BUTTONS & ACTION CONTROLS (Applied Across ALL Pages)
+   ========================================================================== */
+
+/* 1. Primary Action Buttons (Udemy Solid Purple) */
+body.qp-udemy-transformed .btn-primary,
+body.qp-udemy-transformed .start-next-lecture,
+body.qp-udemy-transformed .lecture-complete,
+body.qp-udemy-transformed .InProgressCourseTileResumeButton,
+body.qp-udemy-transformed .ProductCardCTA,
+body.qp-udemy-transformed .qp-btn-purple,
+body.qp-udemy-transformed button.bg-primary,
+body.qp-udemy-transformed [class*="bg-primary"][class*="text-white"],
+body.qp-udemy-transformed a[id^="heap_product-card-cta"] > div {
+  background-color: var(--qp-purple) !important;
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  font-size: 14px !important;
+  border-radius: var(--qp-radius) !important;
+  border: none !important;
+  transition: var(--qp-transition) !important;
+  text-decoration: none !important;
+  cursor: pointer !important;
+}
+
+body.qp-udemy-transformed .btn-primary:hover,
+body.qp-udemy-transformed .start-next-lecture:hover,
+body.qp-udemy-transformed .lecture-complete:hover,
+body.qp-udemy-transformed .InProgressCourseTileResumeButton:hover,
+body.qp-udemy-transformed .ProductCardCTA:hover,
+body.qp-udemy-transformed .qp-btn-purple:hover,
+body.qp-udemy-transformed button.bg-primary:hover,
+body.qp-udemy-transformed a[id^="heap_product-card-cta"]:hover > div {
+  background-color: var(--qp-purple-hover) !important;
+  box-shadow: 0 2px 8px rgba(164, 53, 240, 0.35) !important;
+}
+
+/* 2. Secondary & Outline Action Buttons (Udemy Dark Outline) */
+body.qp-udemy-transformed .InProgressCourseListViewMoreButton,
+body.qp-udemy-transformed .MyLibraryListViewMoreButton,
+body.qp-udemy-transformed .AdditionalProductListViewMoreButton,
+body.qp-udemy-transformed .CompletedCourseTileRevisitButton,
+body.qp-udemy-transformed .InProgressCourseListNMoreButton,
+body.qp-udemy-transformed .MyLibraryListNMoreButton,
+body.qp-udemy-transformed .btn-default,
+body.qp-udemy-transformed .btn-secondary {
+  border: 1px solid var(--qp-heading-color) !important;
+  color: var(--qp-heading-color) !important;
+  background-color: #ffffff !important;
+  font-weight: 700 !important;
+  font-size: 14px !important;
+  border-radius: var(--qp-radius) !important;
+  transition: var(--qp-transition) !important;
+  text-decoration: none !important;
+  cursor: pointer !important;
+}
+
+body.qp-udemy-transformed .InProgressCourseListViewMoreButton:hover,
+body.qp-udemy-transformed .MyLibraryListViewMoreButton:hover,
+body.qp-udemy-transformed .AdditionalProductListViewMoreButton:hover,
+body.qp-udemy-transformed .CompletedCourseTileRevisitButton:hover,
+body.qp-udemy-transformed .btn-default:hover,
+body.qp-udemy-transformed .btn-secondary:hover {
+  background-color: #f2f3f5 !important;
+}
+
+/* ==========================================================================
+   UNIVERSAL PROGRESS BARS (Udemy Purple)
+   ========================================================================== */
+body.qp-udemy-transformed [role="progressbar"],
+body.qp-udemy-transformed .progressbar,
+body.qp-udemy-transformed .ProgressBar,
+body.qp-udemy-transformed .course-progress .progressbar {
+  background-color: #e4e8eb !important;
+  height: 6px !important;
+  border-radius: 3px !important;
+  overflow: hidden !important;
+}
+
+body.qp-udemy-transformed [role="progressbar"] > div,
+body.qp-udemy-transformed .progressbar-fill,
+body.qp-udemy-transformed .ProgressBar .progress-indicator,
+body.qp-udemy-transformed .ProgressBar div[style*="--progress-value"] {
+  background-color: var(--qp-purple) !important;
+  height: 100% !important;
+  border-radius: 3px !important;
+}
+
+/* ==========================================================================
+   UNIVERSAL ENROLLED COURSE SYLLABUS & LANDING PAGES (/courses/enrolled/*, /p/*)
+   ========================================================================== */
+body.qp-udemy-transformed .course-section,
+body.qp-udemy-transformed .course-block {
+  background-color: #ffffff !important;
+  border: 1px solid var(--qp-border) !important;
+  border-radius: var(--qp-radius-lg) !important;
+  margin-bottom: 20px !important;
+  overflow: hidden !important;
+  box-shadow: var(--qp-shadow-sm) !important;
+}
+
+body.qp-udemy-transformed .course-section-title,
+body.qp-udemy-transformed .section-title {
+  background-color: #f7f9fa !important;
+  color: var(--qp-heading-color) !important;
+  font-weight: 700 !important;
+  font-size: 15px !important;
+  padding: 14px 20px !important;
+  border-bottom: 1px solid var(--qp-border-light) !important;
+}
+
+body.qp-udemy-transformed .section-item a {
+  color: var(--qp-text-color) !important;
+  transition: var(--qp-transition) !important;
+}
+
+body.qp-udemy-transformed .section-item:hover {
+  background-color: var(--qp-bg-main) !important;
+}
+
