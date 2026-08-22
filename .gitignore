@@ -20,3 +20,9 @@ build/
 *.html
 !questpond-udemy-extension/**/*.html
 !popup/popup.html
+
+# Credentials
+client_secret*.json
+credentials*.json
+*.env
+
