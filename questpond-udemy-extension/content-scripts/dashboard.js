@@ -548,17 +548,45 @@
     if ((inProgressContainer || mainHeading) && !document.querySelector('.qp-dashboard-streak-banner')) {
       const banner = document.createElement('div');
       banner.className = 'qp-dashboard-streak-banner';
-      banner.style.marginTop = '16px';
+      banner.style.cssText = `
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background-color: var(--qp-card-bg, #1c1d1f);
+        border: 1px solid var(--qp-border, #3e4143);
+        border-radius: 8px;
+        padding: 24px;
+        margin: 0 auto 32px auto;
+        width: 100%;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+      `;
+      
       banner.innerHTML = `
-        <div>
-          <h3 class="qp-streak-title" style="font-size: 16px; font-weight: 700; margin: 0 0 4px 0;">⚡ Daily Learning Goal</h3>
-          <p class="qp-streak-subtext" style="font-size: 13px; margin: 0;">Keep up the momentum! Watch 1 lesson today to maintain your weekly streak.</p>
+        <div style="display: flex; flex-direction: column; gap: 8px; flex: 1;">
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--qp-purple)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path>
+            </svg>
+            <h3 class="qp-streak-title" style="font-size: 19px; font-weight: 700; margin: 0; color: var(--qp-text, #fff);">Daily Learning Goal</h3>
+          </div>
+          <p class="qp-streak-subtext" style="font-size: 15px; margin: 0; color: var(--qp-text-muted, #d1d7dc);">Keep up the momentum! Watch 1 lesson today to maintain your weekly streak.</p>
         </div>
-        <div style="display: flex; align-items: center; gap: 12px;">
-          <div style="width: 42px; height: 42px; border-radius: 50%; border: 3px solid #a435f0; display: flex; align-items: center; justify-content: center; font-weight: 700; color: #a435f0; font-size: 13px;">86%</div>
+        <div style="display: flex; align-items: center; gap: 16px; margin-left: 24px;">
+          <div style="text-align: right;">
+            <div style="font-size: 13px; font-weight: 700; color: var(--qp-text-muted, #d1d7dc); margin-bottom: 2px;">Weekly Progress</div>
+            <div style="font-size: 12px; color: var(--qp-purple);">4 days left</div>
+          </div>
+          <div style="width: 56px; height: 56px; border-radius: 50%; border: 4px solid var(--qp-purple); border-left-color: rgba(164, 53, 240, 0.2); display: flex; align-items: center; justify-content: center; font-weight: 700; color: var(--qp-text, #fff); font-size: 15px; transform: rotate(-45deg);">
+            <span style="transform: rotate(45deg);">86%</span>
+          </div>
         </div>
       `;
-      if (inProgressContainer) {
+      
+      // Try to insert before the grid instead of inside a random heading parent
+      const gridContainer = document.querySelector('.BrowseProducts, [data-sentry-component="DashboardInProgress"] > div');
+      if (gridContainer) {
+         gridContainer.parentNode.insertBefore(banner, gridContainer);
+      } else if (inProgressContainer) {
         inProgressContainer.insertBefore(banner, inProgressContainer.firstChild);
       } else if (mainHeading) {
         mainHeading.parentNode.insertBefore(banner, mainHeading.nextSibling);
