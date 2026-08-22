@@ -223,3 +223,49 @@ input:checked + .slider:before {
   font-size: 10px;
   color: #6a6f73;
 }
+
+/* ==========================================================================
+   POPUP DARK MODE (Leonxlnx/taste-skill)
+   ========================================================================== */
+body.popup-dark {
+  background-color: #141517;
+  color: #f7f9fa;
+}
+
+body.popup-dark .popup-header {
+  background-color: #1c1d1f;
+  border-bottom: 1px solid #33363b;
+}
+
+body.popup-dark .setting-item {
+  background-color: #222427;
+  border-color: #33363b;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+body.popup-dark .setting-text strong {
+  color: #ffffff;
+}
+
+body.popup-dark .setting-text span {
+  color: #cfd4dc;
+}
+
+body.popup-dark .slider {
+  background-color: #4b4f54;
+}
+
+body.popup-dark .btn-secondary {
+  background-color: #222427;
+  border-color: #33363b;
+  color: #f7f9fa;
+}
+
+body.popup-dark .btn-secondary:hover {
+  background-color: #2a2c30;
+}
+
+body.popup-dark .popup-footer {
+  border-top-color: #33363b;
+  color: #949a9e;
+}

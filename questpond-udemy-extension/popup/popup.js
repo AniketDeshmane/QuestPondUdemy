@@ -19,11 +19,20 @@ document.addEventListener('DOMContentLoaded', async () => {
   toggleDarkMode.checked = settings.darkMode === true;
   toggleCurriculum.checked = settings.enhancedCurriculum !== false;
 
+  document.body.classList.toggle('popup-dark', toggleDarkMode.checked);
   updateStatus(toggleEnabled.checked);
 
   // Broadcast settings change to all active tabs
   async function broadcastSetting(key, value) {
-    const tabs = await chrome.tabs.query({ url: ['*://questpond.teachable.com/*', '*://www.questpond.com/*'] });
+    const tabs = await chrome.tabs.query({ 
+      url: [
+        '*://questpond.teachable.com/*',
+        '*://*.teachable.com/*',
+        '*://sso.teachable.com/*',
+        '*://www.questpond.com/*',
+        '*://questpond.com/*'
+      ] 
+    });
     tabs.forEach(tab => {
       chrome.tabs.sendMessage(tab.id, { action: 'settingChanged', key, value }).catch(() => {});
     });
@@ -38,6 +47,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   toggleDarkMode.addEventListener('change', async () => {
     await chrome.storage.local.set({ darkMode: toggleDarkMode.checked });
+    document.body.classList.toggle('popup-dark', toggleDarkMode.checked);
     broadcastSetting('darkMode', toggleDarkMode.checked);
   });
 
