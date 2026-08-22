@@ -550,13 +550,71 @@
     }
   }
 
+  // Enhance Next.js product catalog (/l/products)
+  function enhanceProductCatalog() {
+    if (!window.location.pathname.includes('/l/products') && !document.querySelector('.BrowseProducts')) {
+      return;
+    }
+
+    // Fix broken/missing product images on /l/products
+    const productCards = document.querySelectorAll('.ProductCard, div[data-sentry-component="ClickableProductCard"]');
+    productCards.forEach(card => {
+      const titleEl = card.querySelector('h2.ProductTitle, h2, [class*="font-semibold"]');
+      const title = titleEl ? titleEl.textContent.trim() : '';
+      if (!title) return;
+
+      const theme = getTechTheme(title);
+      const img = card.querySelector('img');
+      const imgContainer = img?.parentElement || card.querySelector('.aspect-video') || card.firstElementChild;
+
+      // Check if image is missing, has broken alt, or failed
+      if (img && (!img.src || img.naturalWidth === 0 || img.alt.includes('Product image for'))) {
+        if (!card.querySelector('.qp-catalog-gradient-thumb')) {
+          const placeholder = document.createElement('div');
+          placeholder.className = 'qp-catalog-gradient-thumb';
+          placeholder.style.cssText = `
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            background: ${theme.bg};
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff;
+            padding: 16px;
+            text-align: center;
+            border-bottom: 1px solid #e4e8eb;
+          `;
+          placeholder.innerHTML = `
+            <div style="font-size: 32px; margin-bottom: 6px;">${theme.icon}</div>
+            <div style="font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;">${theme.tag}</div>
+          `;
+          if (img) img.style.display = 'none';
+          imgContainer.prepend(placeholder);
+        }
+      }
+    });
+
+    // Fix Category pills: Ensure "Data Science" or first pill is not auto-selected on fresh load without category in URL
+    const categoryGroup = document.querySelector('.CourseCategoryToggleGroup');
+    if (categoryGroup && !window.location.search.includes('category=') && !window.location.search.includes('categories=')) {
+      const activePill = categoryGroup.querySelector('button[data-state="on"], button[aria-checked="true"], button:focus');
+      if (activePill && !categoryGroup.dataset.userClicked) {
+        activePill.setAttribute('data-state', 'off');
+        activePill.setAttribute('aria-checked', 'false');
+        activePill.blur();
+      }
+    }
+  }
+
   // Initialization runner
   function init() {
     // Apply Udemy transform class globally across QuestPond
     document.body.classList.add('qp-udemy-transformed');
 
-    // Run Teachable student dashboard enhancement
+    // Run enhancements for Next.js app pages
     enhanceTeachableDashboard();
+    enhanceProductCatalog();
 
     if (!isDashboardPage()) return;
 
@@ -570,6 +628,7 @@
       // If DOM elements render asynchronously, observe DOM
       const observer = new MutationObserver(() => {
         enhanceTeachableDashboard();
+        enhanceProductCatalog();
         const deferredCourses = extractCourses();
         if (deferredCourses.length > 0 && !window.__qp_dashboard_initialized) {
           observer.disconnect();

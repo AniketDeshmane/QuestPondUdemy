@@ -799,75 +799,136 @@ input#heap_product-search:focus {
   background-color: #ffffff !important;
   color: var(--qp-text-color) !important;
   font-size: 13px !important;
-  font-weight: 600 !important;
+  font-weight: 500 !important;
   padding: 6px 14px !important;
+  outline: none !important;
+  box-shadow: none !important;
   transition: var(--qp-transition) !important;
+}
+
+.CourseCategoryToggleGroup button:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.CourseCategoryToggleGroup button[data-state="off"],
+.CourseCategoryToggleGroup button[aria-checked="false"] {
+  background-color: #ffffff !important;
+  color: var(--qp-text-color) !important;
+  border-color: var(--qp-border) !important;
 }
 
 .CourseCategoryToggleGroup button:hover,
 .CourseCategoryToggleGroup button[data-state="on"],
-.CourseCategoryToggleGroup button[aria-pressed="true"] {
+.CourseCategoryToggleGroup button[aria-checked="true"],
+.CourseCategoryToggleGroup button.qp-pill-active {
   background-color: #1c1d1f !important;
   color: #ffffff !important;
   border-color: #1c1d1f !important;
+  font-weight: 700 !important;
 }
 
-/* Product Cards Grid (Only apply to real loaded card list, do not force display on pending skeleton) */
-div[data-sentry-component="ProductCardList"] .group-has-data-pending\:hidden {
+/* Product Cards Grid */
+div[data-sentry-component="ProductCardList"] .group-has-data-pending\:hidden,
+div[data-sentry-component="ProductCardList"] > .grid {
   display: grid !important;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)) !important;
   gap: 24px !important;
 }
 
 /* Product Card */
-.ProductCard {
+.ProductCard,
+div[data-sentry-component="ClickableProductCard"] {
   background: #ffffff !important;
-  border: 1px solid var(--qp-border-light) !important;
-  border-radius: var(--qp-radius) !important;
+  border: 1px solid var(--qp-border) !important;
+  border-radius: var(--qp-radius-lg) !important;
   overflow: hidden !important;
   box-shadow: var(--qp-shadow-sm) !important;
   transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
 }
 
-.ProductCard:hover {
+.ProductCard:hover,
+div[data-sentry-component="ClickableProductCard"]:hover {
   transform: translateY(-4px) !important;
   box-shadow: var(--qp-shadow-md) !important;
 }
 
-.ProductCard h2.ProductTitle {
+/* Product Card Thumbnail */
+.ProductCard img,
+.ProductCard .aspect-video,
+div[data-sentry-component="ClickableProductCard"] img,
+div[data-sentry-component="ClickableProductCard"] .aspect-video {
+  width: 100% !important;
+  aspect-ratio: 16 / 9 !important;
+  object-fit: cover !important;
+  border-bottom: 1px solid var(--qp-border-light) !important;
+}
+
+.ProductCard h2.ProductTitle,
+div[data-sentry-component="ClickableProductCard"] h2 {
   font-size: 16px !important;
   font-weight: 700 !important;
   color: var(--qp-heading-color) !important;
   line-height: 1.35 !important;
+  padding: 0 16px !important;
+  margin-top: 12px !important;
 }
 
-.ProductCard p.ProductDescription {
+.ProductCard p,
+div[data-sentry-component="ClickableProductCard"] p {
   color: var(--qp-text-muted) !important;
-  font-size: 13px !important;
-}
-
-.ProductCard .Author {
   font-size: 12px !important;
-  color: var(--qp-text-muted) !important;
+  padding: 0 16px !important;
 }
 
-.ProductCard .ProgressBar {
+.ProductCard .ProgressBar,
+div[data-sentry-component="ClickableProductCard"] [role="progressbar"] {
   background-color: #e4e8eb !important;
   height: 6px !important;
   border-radius: 3px !important;
   overflow: hidden !important;
+  margin: 8px 16px !important;
 }
 
 .ProductCard .ProgressBar .progress-indicator,
-.ProductCard .ProgressBar div[style*="--progress-value"] {
+.ProductCard .ProgressBar div[style*="--progress-value"],
+div[data-sentry-component="ClickableProductCard"] [role="progressbar"] > div,
+div[data-sentry-component="ClickableProductCard"] [style*="--progress-value"] {
   background-color: var(--qp-purple) !important;
 }
 
-.ProductCard .ProductCardCTA {
-  color: var(--qp-purple) !important;
+/* "View content" CTA Button */
+.ProductCard a[id^="heap_product-card-cta"],
+.ProductCard a[id^="heap_product-card-cta"] > div,
+div[data-sentry-component="ClickableProductCard"] a[id^="heap_product-card-cta"],
+div[data-sentry-component="ClickableProductCard"] a[id^="heap_product-card-cta"] > div,
+div[data-sentry-component="ProductCardActionsNotClickable"] > div {
+  background-color: var(--qp-purple) !important;
+  color: #ffffff !important;
   font-weight: 700 !important;
-  font-size: 13px !important;
+  font-size: 14px !important;
+  border-radius: var(--qp-radius) !important;
+  border: none !important;
+  text-align: center !important;
+  margin: 8px 16px 16px 16px !important;
+  padding: 10px 16px !important;
+  transition: var(--qp-transition) !important;
 }
+
+.ProductCard a[id^="heap_product-card-cta"]:hover > div,
+div[data-sentry-component="ClickableProductCard"] a[id^="heap_product-card-cta"]:hover > div {
+  background-color: var(--qp-purple-hover) !important;
+  box-shadow: 0 2px 8px rgba(164, 53, 240, 0.35) !important;
+}
+
+.ProductCard a[id^="heap_product-card-cta"] span,
+div[data-sentry-component="ClickableProductCard"] a[id^="heap_product-card-cta"] span {
+  color: #ffffff !important;
+}
+
 
 /* ==========================================================================
    TEACHABLE STUDENT DASHBOARD (/l/dashboard)
