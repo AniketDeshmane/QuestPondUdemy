@@ -1047,7 +1047,8 @@ div:has(> a[href*="/courses/"]) {
 }
 
 /* In-Progress Cards on /l/dashboard */
-a[href*="/courses/"][class*="border"] {
+a[href*="/courses/"][class*="border"],
+div[data-sentry-component="DashboardTile"] a {
   background-color: #ffffff !important;
   border: 1px solid var(--qp-border) !important;
   border-radius: var(--qp-radius-lg) !important;
@@ -1057,9 +1058,25 @@ a[href*="/courses/"][class*="border"] {
   margin-bottom: 20px !important;
 }
 
-a[href*="/courses/"][class*="border"]:hover {
+a[href*="/courses/"][class*="border"]:hover,
+div[data-sentry-component="DashboardTile"] a:hover {
   transform: translateY(-3px) !important;
   box-shadow: var(--qp-shadow-md) !important;
+}
+
+body.qp-dark-mode a[href*="/courses/"][class*="border"],
+body.qp-dark-mode div[data-sentry-component="DashboardTile"],
+body.qp-dark-mode div[data-sentry-component="DashboardTile"] a,
+body.qp-dark-mode div[data-sentry-component="DashboardTile"] > div {
+  background-color: #2d2f31 !important;
+  border-color: #3e4143 !important;
+  color: #f7f9fa !important;
+}
+
+body.qp-dark-mode a[href*="/courses/"][class*="border"] > div,
+body.qp-dark-mode a[href*="/courses/"][class*="border"] div[class*="bg-white"],
+body.qp-dark-mode a[href*="/courses/"][class*="border"] [class*="bg-background"] {
+  background-color: transparent !important;
 }
 
 /* Course Title in /l/dashboard */
@@ -1071,12 +1088,24 @@ a[href*="/courses/"] [class*="font-bold"] {
   font-weight: 700 !important;
 }
 
+body.qp-dark-mode a[href*="/courses/"] h3,
+body.qp-dark-mode a[href*="/courses/"] [class*="font-semibold"],
+body.qp-dark-mode a[href*="/courses/"] [class*="font-bold"] {
+  color: #ffffff !important;
+}
+
 /* Next Lesson info */
 a[href*="/courses/"] p,
 a[href*="/courses/"] [class*="text-neutral-500"],
 a[href*="/courses/"] [class*="text-gray"] {
   color: var(--qp-text-muted) !important;
   font-size: 13px !important;
+}
+
+body.qp-dark-mode a[href*="/courses/"] p,
+body.qp-dark-mode a[href*="/courses/"] [class*="text-neutral-500"],
+body.qp-dark-mode a[href*="/courses/"] [class*="text-gray"] {
+  color: #cfd4dc !important;
 }
 
 /* Progress bar in /l/dashboard */
@@ -1089,20 +1118,22 @@ div[class*="bg-gray-200"] {
   overflow: hidden !important;
 }
 
+body.qp-dark-mode div[role="progressbar"],
+body.qp-dark-mode div[class*="bg-neutral-200"],
+body.qp-dark-mode div[class*="bg-gray-200"] {
+  background-color: #3e4143 !important;
+}
+
 div[role="progressbar"] > div,
 div[style*="--progress-value"],
-div[class*="bg-primary"],
-div[class*="bg-brand_primary"] {
+.ProgressBar div[style*="--progress-value"] {
   background-color: var(--qp-purple) !important;
 }
 
 /* Resume Course Button */
-span:has-text("Resume course"),
-button:has-text("Resume course"),
-a:has-text("Resume course"),
-span[class*="bg-primary"],
-div[class*="bg-primary"],
-[class*="bg-blue-600"] {
+a[href*="/courses/"] button,
+a[href*="/courses/"] .InProgressCourseTileResumeButton,
+a[href*="/courses/"] [class*="bg-blue-600"] {
   background-color: var(--qp-purple) !important;
   color: #ffffff !important;
   font-weight: 700 !important;
@@ -1112,8 +1143,9 @@ div[class*="bg-primary"],
   transition: var(--qp-transition) !important;
 }
 
-span:has-text("Resume course"):hover,
-[class*="bg-blue-600"]:hover {
+a[href*="/courses/"] button:hover,
+a[href*="/courses/"] .InProgressCourseTileResumeButton:hover,
+a[href*="/courses/"] [class*="bg-blue-600"]:hover {
   background-color: var(--qp-purple-hover) !important;
   box-shadow: 0 2px 8px rgba(164, 53, 240, 0.35) !important;
 }

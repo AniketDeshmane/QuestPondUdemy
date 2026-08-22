@@ -73,14 +73,15 @@ body.qp-udemy-transformed ::-webkit-scrollbar-thumb:hover {
    ========================================================================== */
 
 /* 1. Primary Action Buttons (Udemy Solid Purple) */
-body.qp-udemy-transformed .btn-primary,
+body.qp-udemy-transformed button.btn-primary,
+body.qp-udemy-transformed a.btn-primary,
+body.qp-udemy-transformed .btn-primary:not(div),
 body.qp-udemy-transformed .start-next-lecture,
 body.qp-udemy-transformed .lecture-complete,
 body.qp-udemy-transformed .InProgressCourseTileResumeButton,
 body.qp-udemy-transformed .ProductCardCTA,
 body.qp-udemy-transformed .qp-btn-purple,
 body.qp-udemy-transformed button.bg-primary,
-body.qp-udemy-transformed [class*="bg-primary"][class*="text-white"],
 body.qp-udemy-transformed a[id^="heap_product-card-cta"] > div {
   background-color: var(--qp-purple) !important;
   color: #ffffff !important;
@@ -654,7 +655,23 @@ body:has(.course-sidebar) header {
   font-weight: 700 !important;
 }
 
-/* "Start next lecture" Banner */
+body.qp-dark-mode .course-mainbar {
+  background-color: #1c1d1f !important;
+  color: #f7f9fa !important;
+}
+
+body.qp-dark-mode .course-mainbar h2.section-title {
+  background-color: transparent !important;
+  color: #ffffff !important;
+  border: none !important;
+  font-size: 24px !important;
+  font-weight: 700 !important;
+  padding: 0 !important;
+  margin: 0 0 20px 0 !important;
+}
+
+/* Next Lecture Banner */
+.next-lecture-wrapper,
 .start-next-lecture-wrapper,
 div:has(> .start-next-lecture),
 div:has(> a.start-next-lecture) {
@@ -669,31 +686,146 @@ div:has(> a.start-next-lecture) {
   justify-content: space-between !important;
 }
 
+body.qp-dark-mode .next-lecture-wrapper,
 body.qp-dark-mode .start-next-lecture-wrapper,
 body.qp-dark-mode div:has(> .start-next-lecture) {
   background-color: #2d2f31 !important;
   border-color: #3e4143 !important;
 }
 
-/* Sidebar navigation links */
-.course-sidebar .nav li a,
-.course-sidebar a {
-  color: var(--qp-text-color) !important;
-  font-weight: 500 !important;
-}
-
-.course-sidebar .nav li.active a,
-.course-sidebar a.active {
-  color: var(--qp-purple) !important;
-  border-left: 3px solid var(--qp-purple) !important;
-  background-color: var(--qp-purple-light) !important;
-  font-weight: 700 !important;
-}
-
-/* Progress Percentage bar in sidebar */
-.course-progress .progressbar-fill,
-div[style*="--progress-value"] {
+.next-lecture-wrapper a.start-next-lecture,
+.next-lecture-wrapper .btn-primary {
   background-color: var(--qp-purple) !important;
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  padding: 10px 20px !important;
+  border-radius: 4px !important;
+  text-decoration: none !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+}
+
+/* Section Box */
+.course-mainbar .course-section {
+  background-color: #ffffff !important;
+  border: 1px solid #d1d7dc !important;
+  border-radius: 8px !important;
+  margin-bottom: 24px !important;
+  overflow: hidden !important;
+}
+
+body.qp-dark-mode .course-mainbar .course-section {
+  background-color: #2d2f31 !important;
+  border-color: #3e4143 !important;
+}
+
+.course-mainbar .course-section .section-title {
+  background-color: #f7f9fa !important;
+  color: #1c1d1f !important;
+  font-size: 15px !important;
+  font-weight: 700 !important;
+  padding: 14px 20px !important;
+  border-bottom: 1px solid #d1d7dc !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+}
+
+body.qp-dark-mode .course-mainbar .course-section .section-title {
+  background-color: #242628 !important;
+  border-color: #3e4143 !important;
+  color: #ffffff !important;
+}
+
+/* Section Items & Rows */
+.course-mainbar ul.section-list {
+  list-style: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.course-mainbar li.section-item {
+  background-color: #ffffff !important;
+  border-bottom: 1px solid #f1f3f4 !important;
+  transition: var(--qp-transition) !important;
+}
+
+body.qp-dark-mode .course-mainbar li.section-item {
+  background-color: #1c1d1f !important;
+  border-bottom: 1px solid #2d2f31 !important;
+}
+
+.course-mainbar li.section-item:hover {
+  background-color: #f7f9fa !important;
+}
+
+body.qp-dark-mode .course-mainbar li.section-item:hover {
+  background-color: #2d2f31 !important;
+}
+
+.course-mainbar li.section-item a.item {
+  padding: 14px 20px !important;
+  display: flex !important;
+  align-items: center !important;
+  text-decoration: none !important;
+}
+
+.course-mainbar .title-container {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  flex: 1 !important;
+}
+
+.course-mainbar .lecture-name {
+  color: #1c1d1f !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  line-height: 1.4 !important;
+}
+
+body.qp-dark-mode .course-mainbar .lecture-name {
+  color: #f7f9fa !important;
+}
+
+/* Start Button on each row */
+.course-mainbar .btn-primary.btn-sm.pull-right,
+.course-mainbar a.item .btn-primary,
+.course-mainbar a.item div[class*="btn-primary"] {
+  background-color: var(--qp-purple) !important;
+  color: #ffffff !important;
+  font-size: 13px !important;
+  font-weight: 700 !important;
+  padding: 6px 16px !important;
+  border-radius: 4px !important;
+  border: none !important;
+  text-decoration: none !important;
+}
+
+.course-mainbar .btn-primary.btn-sm.pull-right:hover,
+.course-mainbar a.item .btn-primary:hover {
+  background-color: var(--qp-purple-hover) !important;
+  box-shadow: 0 2px 8px rgba(164, 53, 240, 0.35) !important;
+}
+
+/* Sidebar image / banner fix */
+.course-sidebar .course-image,
+.course-sidebar img {
+  max-width: 100% !important;
+  border-radius: 6px !important;
+  object-fit: cover !important;
+}
+
+/* Hide Skeletons once real content is rendered */
+body:has(.ProductCard) div[data-sentry-component="ProductsPageLoading"],
+body:has(.ProductCard) div[data-sentry-component="SkeletonCardList"],
+body:has(.ProductCard) div[data-sentry-source-file="loading.tsx"],
+body:has([data-sentry-component="ProductCardList"]) div[data-sentry-component="ProductsPageLoading"],
+body:has(a[href*="/courses/"]) div[data-sentry-component="DashboardSkeletonList"],
+body:has(div[data-sentry-component="DashboardContent"]) div[data-sentry-component="DashboardSkeletonList"],
+body:has([data-sentry-component="DashboardTile"]) div[data-sentry-component="DashboardSkeletonList"] {
+  display: none !important;
 }
 
 

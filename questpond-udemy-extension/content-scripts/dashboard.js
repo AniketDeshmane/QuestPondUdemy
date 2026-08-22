@@ -556,31 +556,33 @@
       const img = card.querySelector('img');
       const imgContainer = img?.parentElement || card.querySelector('.aspect-video') || card.firstElementChild;
 
-      // Check if image is missing, has broken alt, or failed
-      if (img && (!img.src || img.naturalWidth === 0 || img.alt.includes('Product image for'))) {
-        if (!card.querySelector('.qp-catalog-gradient-thumb')) {
-          const placeholder = document.createElement('div');
-          placeholder.className = 'qp-catalog-gradient-thumb';
-          placeholder.style.cssText = `
-            width: 100%;
-            aspect-ratio: 16 / 9;
-            background: ${theme.bg};
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            color: #ffffff;
-            padding: 16px;
-            text-align: center;
-            border-bottom: 1px solid #e4e8eb;
-          `;
-          placeholder.innerHTML = `
-            <div style="font-size: 32px; margin-bottom: 6px;">${theme.icon}</div>
-            <div style="font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;">${theme.tag}</div>
-          `;
-          if (img) img.style.display = 'none';
-          imgContainer.prepend(placeholder);
-        }
+      // Handle broken/failed product images gracefully with a clean gradient thumb
+      if (img) {
+        img.onerror = () => {
+          if (!card.querySelector('.qp-catalog-gradient-thumb')) {
+            const placeholder = document.createElement('div');
+            placeholder.className = 'qp-catalog-gradient-thumb';
+            placeholder.style.cssText = `
+              width: 100%;
+              aspect-ratio: 16 / 9;
+              background: ${theme.bg};
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              justify-content: center;
+              color: #ffffff;
+              padding: 16px;
+              text-align: center;
+              border-bottom: 1px solid #3e4143;
+            `;
+            placeholder.innerHTML = `
+              <div style="font-size: 32px; margin-bottom: 6px;">${theme.icon}</div>
+              <div style="font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;">${theme.tag}</div>
+            `;
+            img.style.display = 'none';
+            imgContainer.prepend(placeholder);
+          }
+        };
       }
     });
 
