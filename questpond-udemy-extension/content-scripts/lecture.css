@@ -633,7 +633,16 @@ body.qp-dark-mode .navbar-sidebar-collapse {
   border-right: 1px solid #3e4143 !important;
 }
 
-body.qp-dark-mode .course-sidebar-head {
+body.qp-dark-mode .course-sidebar-head,
+body.qp-dark-mode .course-sidebar-head.is-sticky,
+body.qp-dark-mode .course-sidebar-head.head-stuck,
+body.qp-dark-mode .course-sidebar-head.sticky,
+body.qp-dark-mode .course-sidebar-head[style],
+body.qp-dark-mode .course-sidebar-head-clone,
+body.qp-dark-mode .sticky-wrapper,
+body.qp-dark-mode .sticky-wrapper .course-sidebar-head,
+body.qp-dark-mode .course-progress.sticky,
+body.qp-dark-mode .course-progress.is-sticky {
   background-color: #1c1d1f !important;
   border-bottom: 1px solid #3e4143 !important;
   color: #ffffff !important;
