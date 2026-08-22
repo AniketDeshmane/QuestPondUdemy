@@ -358,10 +358,20 @@
     `;
 
     // Close handlers
-    modal.querySelector('.qp-modal-close').addEventListener('click', () => modal.remove());
+    const closeModal = () => {
+      modal.remove();
+      document.removeEventListener('keydown', handleKeyDown);
+    };
+
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') closeModal();
+    };
+
+    modal.querySelector('.qp-modal-close').addEventListener('click', closeModal);
     modal.addEventListener('click', (e) => {
-      if (e.target === modal) modal.remove();
+      if (e.target === modal) closeModal();
     });
+    document.addEventListener('keydown', handleKeyDown);
 
     document.body.appendChild(modal);
   }
