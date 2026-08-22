@@ -403,7 +403,9 @@ body.qp-dark-mode li.section-item.active a.item {
   cursor: pointer !important;
   transition: var(--qp-transition) !important;
   user-select: none !important;
-  margin: 0 10px !important;
+  margin-left: auto !important;
+  margin-right: 16px !important;
+  z-index: 100 !important;
 }
 
 .qp-inpage-theme-toggle:hover {
@@ -421,77 +423,216 @@ body.qp-dark-mode .qp-inpage-theme-toggle {
 /* ==========================================================================
    SSO TEACHABLE PROFILE & ACCOUNT SETTINGS (sso.teachable.com)
    ========================================================================== */
-body:has(a[href*="current_user"]),
-body.body-content-view,
-body:has(.profile) {
+body:has(.current-user-layout),
+body:has(.student-settings-header),
+.current-user-layout {
   background-color: var(--qp-bg-main) !important;
-  color: var(--qp-text-color) !important;
   font-family: var(--qp-font) !important;
+  color: var(--qp-text-color) !important;
 }
 
-/* Top bar on sso.teachable.com */
-nav.navbar,
-header.header,
-.navbar__header,
-.site-header {
+/* Top bar on SSO */
+header.student-settings-header,
+header.half-height {
   background-color: #1c1d1f !important;
   border-bottom: 1px solid #3e4143 !important;
+  height: 60px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  padding: 0 24px !important;
+}
+
+header.student-settings-header .nav-icon-back svg {
+  fill: #ffffff !important;
   color: #ffffff !important;
 }
 
-/* Profile Left Navigation Sidebar */
-.sidebar,
-nav.side-nav,
-ul.nav-stacked,
-div[class*="sidebar"] {
+/* SSO Left Sidebar */
+.course-sidebar.lecture-page,
+.current-user-layout .course-sidebar {
   background-color: #ffffff !important;
   border-right: 1px solid var(--qp-border) !important;
+  min-height: calc(100vh - 60px) !important;
+  padding-top: 24px !important;
 }
 
-ul.nav-stacked li a,
-nav.side-nav a,
-div[class*="sidebar"] a {
-  color: var(--qp-text-color) !important;
+.sidebar-nav {
+  list-style: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.sidebar-nav li a {
+  display: block !important;
+  padding: 12px 24px !important;
+  color: #2d2f31 !important;
   font-size: 14px !important;
   font-weight: 500 !important;
-  padding: 12px 18px !important;
-  transition: var(--qp-transition) !important;
+  text-decoration: none !important;
   border-left: 3px solid transparent !important;
+  transition: var(--qp-transition) !important;
 }
 
-ul.nav-stacked li.active a,
-ul.nav-stacked li a:hover,
-nav.side-nav a.active,
-div[class*="sidebar"] a.active {
+.sidebar-nav li a:hover {
+  background-color: #f7f9fa !important;
   color: var(--qp-purple) !important;
+}
+
+.sidebar-nav li.selected a {
   background-color: var(--qp-purple-light) !important;
+  color: var(--qp-purple) !important;
   border-left-color: var(--qp-purple) !important;
   font-weight: 700 !important;
 }
 
-/* Profile Content Panels & Cards */
-.profile-content,
-.main-content,
-.account-card,
-.panel,
-div:has(> h2, > h1) {
+/* Main Profile Content Area */
+.course-mainbar.edit-settings-page {
+  background-color: var(--qp-bg-main) !important;
+  padding: 32px 48px !important;
+}
+
+/* Headings */
+h2.heading2,
+.pageHeading {
+  font-size: 24px !important;
+  font-weight: 700 !important;
+  color: var(--qp-heading-color) !important;
+  letter-spacing: -0.4px !important;
+  margin: 24px 0 16px 0 !important;
+}
+
+/* Information Cards & List Groups */
+.current-user-layout .list-group {
   background-color: #ffffff !important;
+  border: 1px solid var(--qp-border) !important;
   border-radius: var(--qp-radius-lg) !important;
+  overflow: hidden !important;
+  box-shadow: var(--qp-shadow-sm) !important;
+  margin-bottom: 24px !important;
 }
 
-/* Notification Toggles / Switches */
-input[type="checkbox"]:checked + .slider,
-.toggle-switch input:checked + span {
-  background-color: var(--qp-purple) !important;
+.current-user-layout .list-group-item {
+  background-color: #ffffff !important;
+  border: none !important;
+  border-bottom: 1px solid var(--qp-border-light) !important;
+  padding: 16px 20px !important;
+  color: var(--qp-text-color) !important;
 }
 
-/* Edit / Change action links */
-a:has-text("Edit"),
-a:has-text("Change"),
-a.link-primary,
-.text-primary {
-  color: var(--qp-purple) !important;
+.current-user-layout .list-group-item:last-child {
+  border-bottom: none !important;
+}
+
+/* Form Labels & Info */
+.form-label,
+.form-label.bodyMain {
+  font-size: 12px !important;
   font-weight: 600 !important;
+  color: var(--qp-text-muted) !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.5px !important;
+  margin-bottom: 4px !important;
+}
+
+.form-label-info,
+.bodyMain {
+  font-size: 15px !important;
+  color: var(--qp-text-color) !important;
+  font-weight: 500 !important;
+}
+
+.bodyMain.ash {
+  color: var(--qp-text-muted) !important;
+  font-size: 13px !important;
+}
+
+/* Action Buttons & Links (Edit, Change, Link) */
+.edit-btn,
+.connect-link,
+a.link {
+  color: var(--qp-purple) !important;
+  font-weight: 700 !important;
+  font-size: 14px !important;
+  text-decoration: none !important;
+  background: transparent !important;
+  border: none !important;
+  cursor: pointer !important;
+  transition: var(--qp-transition) !important;
+}
+
+.edit-btn:hover,
+.connect-link:hover {
+  color: var(--qp-purple-hover) !important;
+  text-decoration: underline !important;
+}
+
+/* Profile Image / Gravatar */
+.current-user-layout .img-circle {
+  border-radius: 50% !important;
+  border: 3px solid var(--qp-purple) !important;
+}
+
+/* Switches / Toggles in Profile */
+.switchInput.turnedOn {
+  background-color: var(--qp-purple) !important;
+  border-color: var(--qp-purple) !important;
+}
+
+/* ==========================================================================
+   SSO PROFILE DARK MODE OVERRIDES
+   ========================================================================== */
+body.qp-dark-mode .course-sidebar.lecture-page {
+  background-color: #1c1d1f !important;
+  border-color: #3e4143 !important;
+}
+
+body.qp-dark-mode .sidebar-nav li a {
+  color: #cfd4dc !important;
+}
+
+body.qp-dark-mode .sidebar-nav li a:hover {
+  background-color: #2d2f31 !important;
+  color: #ffffff !important;
+}
+
+body.qp-dark-mode .sidebar-nav li.selected a {
+  background-color: #322340 !important;
+  color: #ffffff !important;
+  border-left-color: var(--qp-purple) !important;
+}
+
+body.qp-dark-mode .course-mainbar.edit-settings-page {
+  background-color: #1c1d1f !important;
+}
+
+body.qp-dark-mode h2.heading2,
+body.qp-dark-mode .pageHeading {
+  color: #ffffff !important;
+}
+
+body.qp-dark-mode .current-user-layout .list-group {
+  background-color: #2d2f31 !important;
+  border-color: #3e4143 !important;
+}
+
+body.qp-dark-mode .current-user-layout .list-group-item {
+  background-color: #2d2f31 !important;
+  border-color: #3e4143 !important;
+  color: #f7f9fa !important;
+}
+
+body.qp-dark-mode .form-label {
+  color: #a1a7b0 !important;
+}
+
+body.qp-dark-mode .form-label-info,
+body.qp-dark-mode .bodyMain {
+  color: #ffffff !important;
+}
+
+body.qp-dark-mode .bodyMain.ash {
+  color: #cfd4dc !important;
 }
 
 /* ==========================================================================
@@ -528,6 +669,12 @@ div:has(> a.start-next-lecture) {
   justify-content: space-between !important;
 }
 
+body.qp-dark-mode .start-next-lecture-wrapper,
+body.qp-dark-mode div:has(> .start-next-lecture) {
+  background-color: #2d2f31 !important;
+  border-color: #3e4143 !important;
+}
+
 /* Sidebar navigation links */
 .course-sidebar .nav li a,
 .course-sidebar a {
@@ -548,6 +695,7 @@ div:has(> a.start-next-lecture) {
 div[style*="--progress-value"] {
   background-color: var(--qp-purple) !important;
 }
+
 
 
 

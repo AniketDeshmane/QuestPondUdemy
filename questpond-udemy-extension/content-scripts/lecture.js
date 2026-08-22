@@ -350,7 +350,7 @@
       }
     });
 
-    targetNav.prepend(toggleBtn);
+    targetNav.appendChild(toggleBtn);
   }
 
   function updateAllToggleButtons(isDark) {
