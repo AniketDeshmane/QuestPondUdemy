@@ -21,8 +21,10 @@ build/
 !questpond-udemy-extension/**/*.html
 !popup/popup.html
 
-# Credentials
+# Credentials & Local Helpers
 client_secret*.json
 credentials*.json
+get-refresh-token.js
 *.env
+
 
