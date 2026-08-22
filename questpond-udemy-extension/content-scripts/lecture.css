@@ -1,0 +1,381 @@
+/* QuestPond Udemy Beautifier - Lecture & Video Player Page Styles */
+
+/* --- GLOBAL LECTURE PAGE OVERRIDES --- */
+body.revamped_lecture_player,
+body.lecture {
+  background-color: #1c1d1f !important;
+  color: #ffffff !important;
+  font-family: var(--qp-font) !important;
+}
+
+/* --- UDEMY-STYLE TOP HEADER --- */
+header.full-width,
+header.course-player__header,
+header.is-signed-in {
+  background-color: #1c1d1f !important;
+  border-bottom: 1px solid #3e4143 !important;
+  height: 60px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  padding: 0 24px !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4) !important;
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 1000 !important;
+}
+
+/* Left section with back home & course title */
+header .lecture-left,
+.course-player__header-left {
+  display: flex !important;
+  align-items: center !important;
+  gap: 16px !important;
+}
+
+header .nav-icon-back,
+.course-player__home-btn {
+  color: #ffffff !important;
+  font-size: 18px !important;
+  display: flex !important;
+  align-items: center !important;
+  text-decoration: none !important;
+  transition: var(--qp-transition) !important;
+  padding: 8px !important;
+  border-radius: 4px !important;
+}
+
+header .nav-icon-back:hover,
+.course-player__home-btn:hover {
+  background: rgba(255, 255, 255, 0.1) !important;
+}
+
+.qp-header-course-title {
+  color: #ffffff !important;
+  font-size: 15px !important;
+  font-weight: 600 !important;
+  border-left: 1px solid #3e4143;
+  padding-left: 16px;
+  max-width: 450px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Right Navigation & Complete Button */
+header .lecture-nav,
+.course-player__header-right {
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+}
+
+#lecture_complete_button,
+#lecture_content_complete_button,
+.course-player__complete-btn {
+  background-color: var(--qp-purple) !important;
+  color: #ffffff !important;
+  border: none !important;
+  border-radius: var(--qp-radius) !important;
+  font-weight: 700 !important;
+  font-size: 14px !important;
+  padding: 10px 18px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  transition: var(--qp-transition) !important;
+  text-decoration: none !important;
+  cursor: pointer !important;
+}
+
+#lecture_complete_button:hover,
+#lecture_content_complete_button:hover,
+.course-player__complete-btn:hover {
+  background-color: var(--qp-purple-hover) !important;
+  box-shadow: 0 0 12px rgba(164, 53, 240, 0.5) !important;
+}
+
+#lecture_previous_button {
+  background: transparent !important;
+  border: 1px solid #3e4143 !important;
+  color: #cfd4dc !important;
+  border-radius: var(--qp-radius) !important;
+  padding: 9px 16px !important;
+  font-weight: 600 !important;
+  font-size: 14px !important;
+  text-decoration: none !important;
+  transition: var(--qp-transition) !important;
+}
+
+#lecture_previous_button:hover {
+  background: rgba(255, 255, 255, 0.08) !important;
+  color: #ffffff !important;
+}
+
+/* --- MAIN CONTENT & VIDEO THEATER --- */
+div[role="main"].lecture-content,
+.course-mainbar {
+  background-color: #1c1d1f !important;
+  padding: 0 !important;
+  min-height: calc(100vh - 60px) !important;
+}
+
+.qp-video-theater-wrapper {
+  background-color: #000000;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 24px 0;
+  box-shadow: inset 0 0 40px rgba(0,0,0,0.8);
+}
+
+.qp-video-theater-container {
+  width: 100%;
+  max-width: 1080px;
+  background: #000;
+  border-radius: var(--qp-radius);
+  overflow: hidden;
+}
+
+.lecture-attachment-type-video {
+  margin-bottom: 0 !important;
+}
+
+/* Heading below video */
+h2#lecture_heading,
+.course-mainbar__top-heading h2 {
+  color: #ffffff !important;
+  font-size: 22px !important;
+  font-weight: 700 !important;
+  margin: 24px 32px 16px 32px !important;
+  border: none !important;
+  padding: 0 !important;
+}
+
+/* Udemy Sub-tabs below Video */
+.qp-lecture-tabs-row {
+  border-bottom: 1px solid #3e4143;
+  margin: 0 32px 24px 32px;
+  display: flex;
+  gap: 24px;
+}
+
+.qp-lecture-subtab {
+  color: #cfd4dc;
+  font-size: 15px;
+  font-weight: 600;
+  padding: 12px 4px;
+  cursor: pointer;
+  border-bottom: 3px solid transparent;
+  transition: var(--qp-transition);
+}
+
+.qp-lecture-subtab:hover {
+  color: #ffffff;
+}
+
+.qp-lecture-subtab.active {
+  color: #ffffff;
+  border-bottom-color: #ffffff;
+}
+
+/* Lecture Text Description & Downloads Container */
+#lecture-contents-container {
+  padding: 0 32px 48px 32px !important;
+}
+
+.lecture-text-container {
+  background: #2d2f31 !important;
+  border: 1px solid #3e4143 !important;
+  border-radius: var(--qp-radius-lg) !important;
+  padding: 24px !important;
+  color: #e4e8eb !important;
+  margin-bottom: 24px !important;
+  line-height: 1.6 !important;
+}
+
+.lecture-text-container p {
+  color: #e4e8eb !important;
+  font-size: 15px !important;
+}
+
+/* Attachment download buttons */
+.lecture-attachment-type-file a.download,
+.video-options a.download {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  background: #2d2f31 !important;
+  border: 1px solid #3e4143 !important;
+  color: #ffffff !important;
+  padding: 10px 18px !important;
+  border-radius: var(--qp-radius) !important;
+  text-decoration: none !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  transition: var(--qp-transition) !important;
+  margin: 8px 0 !important;
+}
+
+.lecture-attachment-type-file a.download:hover,
+.video-options a.download:hover {
+  border-color: var(--qp-purple) !important;
+  background: rgba(164, 53, 240, 0.15) !important;
+  color: #ffffff !important;
+}
+
+/* --- SIDEBAR / COURSE CONTENT (UDEMY-STYLE RIGHT/LEFT PANEL) --- */
+#courseSidebar,
+.course-sidebar {
+  background-color: #ffffff !important;
+  color: #1c1d1f !important;
+  border-right: 1px solid #d1d7dc !important;
+  border-left: 1px solid #d1d7dc !important;
+  box-shadow: var(--qp-shadow-md) !important;
+  overflow-y: auto !important;
+}
+
+.course-sidebar-head {
+  padding: 20px 24px !important;
+  border-bottom: 1px solid #d1d7dc !important;
+  background: #ffffff !important;
+}
+
+.course-sidebar-head h2 {
+  font-size: 17px !important;
+  font-weight: 700 !important;
+  color: #1c1d1f !important;
+  margin: 0 0 12px 0 !important;
+}
+
+.course-progress {
+  background: transparent !important;
+  padding: 0 !important;
+}
+
+.course-progress .progressbar {
+  background-color: #e4e8eb !important;
+  height: 6px !important;
+  border-radius: 3px !important;
+  overflow: hidden !important;
+  margin-bottom: 6px !important;
+}
+
+.course-progress .progressbar-fill {
+  background-color: var(--qp-purple) !important;
+  height: 100% !important;
+  border-radius: 3px !important;
+}
+
+.course-progress-percentage {
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  color: #6a6f73 !important;
+}
+
+/* Section Title Header */
+.course-section .section-title {
+  background-color: #f7f9fa !important;
+  color: #1c1d1f !important;
+  font-size: 15px !important;
+  font-weight: 700 !important;
+  padding: 16px 20px !important;
+  border-top: 1px solid #d1d7dc !important;
+  border-bottom: 1px solid #d1d7dc !important;
+  cursor: pointer !important;
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+}
+
+.course-section .section-title:hover {
+  background-color: #eef2f5 !important;
+}
+
+/* Lecture List Item */
+ul.section-list {
+  padding: 0 !important;
+  margin: 0 !important;
+  list-style: none !important;
+}
+
+li.section-item {
+  border-bottom: 1px solid #f1f3f4 !important;
+  transition: var(--qp-transition) !important;
+  background: #ffffff !important;
+}
+
+li.section-item a.item {
+  padding: 14px 20px !important;
+  display: flex !important;
+  align-items: flex-start !important;
+  gap: 12px !important;
+  text-decoration: none !important;
+  color: #2d2f31 !important;
+  transition: var(--qp-transition) !important;
+}
+
+li.section-item:hover {
+  background-color: #f7f9fa !important;
+}
+
+/* Active Lecture Item */
+li.section-item.next-lecture,
+li.section-item.active {
+  background-color: #f3e8fd !important;
+  border-left: 4px solid var(--qp-purple) !important;
+}
+
+li.section-item.next-lecture a.item,
+li.section-item.active a.item {
+  color: #1c1d1f !important;
+  font-weight: 600 !important;
+}
+
+/* Checkbox & Status Icons */
+.status-container {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-width: 18px !important;
+  height: 18px !important;
+  border: 2px solid #6a6f73 !important;
+  border-radius: 2px !important;
+  margin-top: 2px !important;
+  transition: var(--qp-transition) !important;
+}
+
+li.section-item.completed .status-container {
+  background-color: var(--qp-purple) !important;
+  border-color: var(--qp-purple) !important;
+}
+
+li.section-item.completed .status-container::after {
+  content: "✔" !important;
+  color: #ffffff !important;
+  font-size: 11px !important;
+  font-weight: bold !important;
+}
+
+/* Lecture Name & Duration Styling */
+.title-container {
+  display: flex !important;
+  flex-direction: column !important;
+  flex: 1 !important;
+}
+
+.lecture-name {
+  font-size: 14px !important;
+  color: inherit !important;
+  line-height: 1.4 !important;
+}
+
+.qp-lesson-duration-badge {
+  font-size: 12px !important;
+  color: #6a6f73 !important;
+  margin-top: 4px !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 4px !important;
+}

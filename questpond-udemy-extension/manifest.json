@@ -1,0 +1,50 @@
+{
+  "manifest_version": 3,
+  "name": "QuestPond Udemy-Style UI Beautifier",
+  "version": "1.0.0",
+  "description": "Transforms QuestPond into a modern, clean Udemy-style learning platform with course cards, dark theater lecture player, and progress tracking.",
+  "icons": {
+    "16": "icons/icon-16.png",
+    "48": "icons/icon-48.png",
+    "128": "icons/icon-128.png"
+  },
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_title": "QuestPond Udemy Beautifier",
+    "default_icon": {
+      "16": "icons/icon-16.png",
+      "48": "icons/icon-48.png",
+      "128": "icons/icon-128.png"
+    }
+  },
+  "background": {
+    "service_worker": "service-worker.js"
+  },
+  "permissions": [
+    "storage",
+    "activeTab"
+  ],
+  "host_permissions": [
+    "*://questpond.teachable.com/*",
+    "*://www.questpond.com/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "*://questpond.teachable.com/*",
+        "*://www.questpond.com/*",
+        "file:///*"
+      ],
+      "css": [
+        "content-scripts/common.css",
+        "content-scripts/dashboard.css",
+        "content-scripts/lecture.css"
+      ],
+      "js": [
+        "content-scripts/dashboard.js",
+        "content-scripts/lecture.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ]
+}

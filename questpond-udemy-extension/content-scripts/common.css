@@ -1,0 +1,69 @@
+/* QuestPond Udemy Beautifier - Common Design System & Variables */
+
+:root {
+  --qp-font: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --qp-purple: #a435f0;
+  --qp-purple-hover: #8710d8;
+  --qp-purple-light: #f6e8ff;
+  --qp-purple-border: #d2a4f9;
+  
+  --qp-heading-color: #1c1d1f;
+  --qp-text-color: #2d2f31;
+  --qp-text-muted: #6a6f73;
+  --qp-text-light: #ffffff;
+  
+  --qp-bg-main: #f7f9fa;
+  --qp-bg-card: #ffffff;
+  --qp-bg-navbar: #1c1d1f;
+  --qp-bg-sidebar: #ffffff;
+  
+  --qp-border: #d1d7dc;
+  --qp-border-light: #e4e8eb;
+  
+  --qp-star-color: #e59819;
+  --qp-success-color: #1e7e34;
+  --qp-warning-color: #e59819;
+  --qp-info-color: #0073e6;
+  
+  --qp-shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.08);
+  --qp-shadow-md: 0 4px 12px rgba(0, 0, 0, 0.12);
+  --qp-shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.15);
+  
+  --qp-radius: 4px;
+  --qp-radius-lg: 8px;
+  --qp-radius-pill: 9999px;
+  
+  --qp-transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Base resets for modern typography and readability */
+body.qp-udemy-transformed {
+  font-family: var(--qp-font) !important;
+  background-color: var(--qp-bg-main) !important;
+  color: var(--qp-text-color) !important;
+  line-height: 1.5 !important;
+  -webkit-font-smoothing: antialiased !important;
+}
+
+body.qp-udemy-transformed * {
+  box-sizing: border-box;
+}
+
+/* Shared Custom Scrollbar */
+body.qp-udemy-transformed ::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+body.qp-udemy-transformed ::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+body.qp-udemy-transformed ::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 4px;
+}
+
+body.qp-udemy-transformed ::-webkit-scrollbar-thumb:hover {
+  background: #999;
+}

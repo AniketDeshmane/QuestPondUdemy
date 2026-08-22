@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QuestPond Beautifier</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="popup-container">
+    <div class="popup-header">
+      <div class="logo-area">
+        <span class="logo-icon">🎓</span>
+        <div>
+          <h2>QuestPond Beautifier</h2>
+          <span class="subtitle">Udemy Style Edition</span>
+        </div>
+      </div>
+      <span class="version-tag">v1.0</span>
+    </div>
+
+    <div class="status-banner">
+      <div class="status-indicator"></div>
+      <span id="status-text">Active on QuestPond</span>
+    </div>
+
+    <div class="settings-section">
+      <div class="setting-item">
+        <div class="setting-text">
+          <strong>Enable Udemy UI</strong>
+          <span>Transform dashboard into course cards</span>
+        </div>
+        <label class="toggle-switch">
+          <input type="checkbox" id="toggle-enabled" checked>
+          <span class="slider"></span>
+        </label>
+      </div>
+
+      <div class="setting-item">
+        <div class="setting-text">
+          <strong>Dark Theater Video Player</strong>
+          <span>Modern black video canvas</span>
+        </div>
+        <label class="toggle-switch">
+          <input type="checkbox" id="toggle-darkmode" checked>
+          <span class="slider"></span>
+        </label>
+      </div>
+
+      <div class="setting-item">
+        <div class="setting-text">
+          <strong>Enhanced Sidebar Curriculum</strong>
+          <span>Parsed durations and section badges</span>
+        </div>
+        <label class="toggle-switch">
+          <input type="checkbox" id="toggle-curriculum" checked>
+          <span class="slider"></span>
+        </label>
+      </div>
+    </div>
+
+    <div class="actions-section">
+      <button id="btn-refresh" class="btn-primary">🔄 Reload Current Tab</button>
+      <button id="btn-dashboard" class="btn-secondary">🔗 Open QuestPond</button>
+    </div>
+
+    <div class="popup-footer">
+      <span>Crafted for an exceptional learning experience</span>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,82 @@
+name: Build & Release Extension
+
+on:
+  push:
+    branches:
+      - main
+      - master
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-release:
+    name: Package Extension & Create Release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Calculate Version and Tag Names
+        id: vars
+        run: |
+          MANIFEST_VER=$(node -p "require('./questpond-udemy-extension/manifest.json').version")
+          SHORT_SHA=$(git rev-parse --short HEAD)
+          TAG_NAME="v${MANIFEST_VER}-b${GITHUB_RUN_NUMBER}"
+          ZIP_NAME="questpond-udemy-v${MANIFEST_VER}-build${GITHUB_RUN_NUMBER}.zip"
+          
+          echo "manifest_version=${MANIFEST_VER}" >> $GITHUB_OUTPUT
+          echo "tag_name=${TAG_NAME}" >> $GITHUB_OUTPUT
+          echo "zip_name=${ZIP_NAME}" >> $GITHUB_OUTPUT
+          echo "short_sha=${SHORT_SHA}" >> $GITHUB_OUTPUT
+
+      - name: Package Extension into ZIP
+        run: |
+          cd questpond-udemy-extension
+          zip -r "../${{ steps.vars.outputs.zip_name }}" . -x "*.DS_Store" "*__MACOSX*" "*.git*"
+          cd ..
+          ls -la "${{ steps.vars.outputs.zip_name }}"
+
+      - name: Upload Workflow Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ steps.vars.outputs.zip_name }}
+          path: ${{ steps.vars.outputs.zip_name }}
+          retention-days: 90
+
+      - name: Create GitHub Release & Upload ZIP Asset
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ steps.vars.outputs.tag_name }}
+          name: "Release ${{ steps.vars.outputs.tag_name }}"
+          body: |
+            ## 🎓 QuestPond Udemy Beautifier Extension (${{ steps.vars.outputs.tag_name }})
+            
+            Automated build for commit [`${{ steps.vars.outputs.short_sha }}`](${{ github.server_url }}/${{ github.repository }}/commit/${{ github.sha }}).
+            
+            ### 📦 Download & Installation
+            1. Download **`${{ steps.vars.outputs.zip_name }}`** attached below.
+            2. Extract the contents to a folder.
+            3. In **Chrome / Brave / Edge**, open `chrome://extensions/`.
+            4. Turn on **Developer mode** (top right).
+            5. Click **Load unpacked** and select the unzipped folder.
+            
+            ### ✨ Features Included
+            - 📊 Modern **Udemy "My learning"** Dashboard layout with course cards grid.
+            - 🎨 Dynamic tech gradient badges and thumbnails.
+            - 🎬 Dark theater mode video player with purple CTA buttons.
+            - ⏱️ Curriculum sidebar duration badges and statistics.
+            - 🔍 Instant live search and Interview Mode toggle.
+          files: ${{ steps.vars.outputs.zip_name }}
+          draft: false
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -1,0 +1,225 @@
+/* QuestPond Beautifier - Popup Styles */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  width: 320px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  background-color: #f7f9fa;
+  color: #2d2f31;
+  font-size: 13px;
+  user-select: none;
+}
+
+.popup-container {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header */
+.popup-header {
+  background-color: #1c1d1f;
+  color: #ffffff;
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo-area {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-icon {
+  font-size: 24px;
+}
+
+.popup-header h2 {
+  font-size: 14px;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.2;
+}
+
+.subtitle {
+  font-size: 11px;
+  color: #a435f0;
+  font-weight: 600;
+}
+
+.version-tag {
+  background: rgba(255, 255, 255, 0.15);
+  font-size: 10px;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 4px;
+  color: #d1d7dc;
+}
+
+/* Status Banner */
+.status-banner {
+  background: #e6f7f0;
+  border-bottom: 1px solid #c2eedc;
+  padding: 8px 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #007a4d;
+}
+
+.status-indicator {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #00a169;
+  box-shadow: 0 0 6px rgba(0, 161, 105, 0.6);
+}
+
+/* Settings List */
+.settings-section {
+  padding: 12px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.setting-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #ffffff;
+  padding: 10px 14px;
+  border-radius: 6px;
+  border: 1px solid #e4e8eb;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+.setting-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  max-width: 200px;
+}
+
+.setting-text strong {
+  font-size: 13px;
+  color: #1c1d1f;
+}
+
+.setting-text span {
+  font-size: 11px;
+  color: #6a6f73;
+}
+
+/* Toggle Switch */
+.toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 36px;
+  height: 20px;
+}
+
+.toggle-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 20px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 14px;
+  width: 14px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: #a435f0;
+}
+
+input:checked + .slider:before {
+  transform: translateX(16px);
+}
+
+/* Actions */
+.actions-section {
+  padding: 8px 20px 16px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.btn-primary {
+  background: #a435f0;
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  padding: 9px 16px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.btn-primary:hover {
+  background: #8710d8;
+  box-shadow: 0 2px 8px rgba(164, 53, 240, 0.35);
+}
+
+.btn-secondary {
+  background: #ffffff;
+  color: #1c1d1f;
+  border: 1px solid #d1d7dc;
+  border-radius: 4px;
+  padding: 8px 16px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.btn-secondary:hover {
+  background: #f2f3f5;
+  border-color: #1c1d1f;
+}
+
+/* Footer */
+.popup-footer {
+  padding: 10px 20px;
+  border-top: 1px solid #e4e8eb;
+  text-align: center;
+  font-size: 10px;
+  color: #6a6f73;
+}
