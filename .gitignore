@@ -26,5 +26,8 @@ client_secret*.json
 credentials*.json
 get-refresh-token.js
 *.env
+cookie*.txt
+pages/
+
 
 
