@@ -16,19 +16,20 @@
     );
   }
 
-  // Tech gradient generator for Udemy-style course artwork
+  // High-Taste Tech gradient generator for Udemy-style course artwork (Leonxlnx/taste-skill)
   const TECH_THEMES = [
-    { keywords: ['c#', '.net', 'csharp', 'linq', 'asp.net', 'mvc'], bg: 'linear-gradient(135deg, #512bd4 0%, #29127a 100%)', icon: '💻', tag: '.NET / C#' },
-    { keywords: ['angular', 'rxjs', 'typescript'], bg: 'linear-gradient(135deg, #dd0031 0%, #8b001a 100%)', icon: '🅰️', tag: 'Angular' },
-    { keywords: ['react', 'nextjs', 'redux'], bg: 'linear-gradient(135deg, #00758f 0%, #003748 100%)', icon: '⚛️', tag: 'React' },
-    { keywords: ['azure', 'cloud', 'devops'], bg: 'linear-gradient(135deg, #0078d4 0%, #004578 100%)', icon: '☁️', tag: 'Microsoft Azure' },
-    { keywords: ['docker', 'kubernetes', 'k8s', 'container'], bg: 'linear-gradient(135deg, #2496ed 0%, #0d447a 100%)', icon: '🐳', tag: 'DevOps & Containers' },
-    { keywords: ['sql', 'database', 'msbi', 'ssis', 'ssrs', 'ssas'], bg: 'linear-gradient(135deg, #cc292b 0%, #6e1315 100%)', icon: '🗄️', tag: 'SQL & Database' },
-    { keywords: ['javascript', 'js', 'node', 'web'], bg: 'linear-gradient(135deg, #f7df1e 0%, #b89f00 100%)', icon: '⚡', tag: 'JavaScript' },
-    { keywords: ['microservices', 'architecture', 'design pattern'], bg: 'linear-gradient(135deg, #4f46e5 0%, #2e1065 100%)', icon: '🏗️', tag: 'Software Architecture' },
-    { keywords: ['ai', 'ml', 'python', 'machine learning', 'deep learning'], bg: 'linear-gradient(135deg, #10b981 0%, #064e3b 100%)', icon: '🤖', tag: 'AI & Data Science' },
-    { keywords: ['interview', 'q & a', 'resume'], bg: 'linear-gradient(135deg, #0ea5e9 0%, #0369a1 100%)', icon: '🎯', tag: 'Interview Prep' },
-    { keywords: ['java', 'spring', 'springboot'], bg: 'linear-gradient(135deg, #ea580c 0%, #7c2d12 100%)', icon: '☕', tag: 'Java Spring' }
+    { keywords: ['c#', '.net', 'csharp', 'linq', 'asp.net', 'mvc'], bg: 'linear-gradient(135deg, #1e1b4b 0%, #31104b 50%, #431407 100%)', icon: '💻', tag: 'C# / .NET' },
+    { keywords: ['angular', 'rxjs', 'typescript'], bg: 'linear-gradient(135deg, #450a0a 0%, #1e0a16 100%)', icon: '🅰️', tag: 'Angular' },
+    { keywords: ['react', 'nextjs', 'redux'], bg: 'linear-gradient(135deg, #082f49 0%, #030712 100%)', icon: '⚛️', tag: 'React' },
+    { keywords: ['azure', 'cloud', 'devops'], bg: 'linear-gradient(135deg, #0c2d48 0%, #051622 100%)', icon: '☁️', tag: 'Microsoft Azure' },
+    { keywords: ['docker', 'kubernetes', 'k8s', 'container'], bg: 'linear-gradient(135deg, #072635 0%, #04121a 100%)', icon: '🐳', tag: 'Docker & K8s' },
+    { keywords: ['sql', 'database', 'msbi', 'ssis', 'ssrs', 'ssas'], bg: 'linear-gradient(135deg, #1c1917 0%, #0c0a09 100%)', icon: '🗄️', tag: 'SQL & Data' },
+    { keywords: ['javascript', 'js', 'node', 'web'], bg: 'linear-gradient(135deg, #1c1917 0%, #3a3000 100%)', icon: '⚡', tag: 'JavaScript' },
+    { keywords: ['microservices', 'architecture', 'design pattern'], bg: 'linear-gradient(135deg, #1e1b4b 0%, #0f172a 100%)', icon: '🏗️', tag: 'Architecture' },
+    { keywords: ['data structure', 'algorithm', 'dsa'], bg: 'linear-gradient(135deg, #064e3b 0%, #022c22 100%)', icon: '🌲', tag: 'Algorithms & DSA' },
+    { keywords: ['ai', 'ml', 'python', 'machine learning', 'deep learning'], bg: 'linear-gradient(135deg, #134e4a 0%, #042f2e 100%)', icon: '🤖', tag: 'AI & Data Science' },
+    { keywords: ['interview', 'q & a', 'resume'], bg: 'linear-gradient(135deg, #312e81 0%, #1e1b4b 100%)', icon: '🎯', tag: 'Interview Prep' },
+    { keywords: ['java', 'spring', 'springboot'], bg: 'linear-gradient(135deg, #431407 0%, #1c0a02 100%)', icon: '☕', tag: 'Java Spring' }
   ];
 
   function getTechTheme(title) {
@@ -39,7 +40,7 @@
       }
     }
     return {
-      bg: 'linear-gradient(135deg, #6366f1 0%, #312e81 100%)',
+      bg: 'linear-gradient(135deg, #1e1b4b 0%, #0f172a 100%)',
       icon: '📚',
       tag: 'QuestPond Course'
     };
@@ -487,35 +488,39 @@
 
       const theme = getTechTheme(title);
 
-      // Check image or broken image
+      // Re-image legacy/ugly yellow bitmaps with high-taste gradient artwork
       const imgContainer = card.querySelector('.aspect-video, [class*="w-48"], [class*="w-56"], [class*="w-64"], img')?.parentElement || card.firstElementChild;
       const img = card.querySelector('img');
 
-      if (imgContainer && (!img || !img.src || img.naturalWidth === 0 || img.alt.includes('Product image for'))) {
+      if (imgContainer) {
         const placeholder = document.createElement('div');
+        placeholder.className = 'qp-dashboard-gradient-thumb';
         placeholder.style.cssText = `
-          width: 180px;
-          min-width: 180px;
+          width: 200px;
+          min-width: 200px;
           height: 100%;
-          min-height: 110px;
+          min-height: 120px;
           background: ${theme.bg};
           display: flex;
           flex-direction: column;
           align-items: center;
           justify-content: center;
           color: #ffffff;
-          padding: 12px;
+          padding: 16px 12px;
           text-align: center;
-          border-radius: 4px;
+          border-radius: 6px;
+          box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.4);
+          position: relative;
+          overflow: hidden;
         `;
         placeholder.innerHTML = `
-          <div style="font-size: 28px; margin-bottom: 4px;">${theme.icon}</div>
-          <div style="font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;">${theme.tag}</div>
+          <div style="font-size: 32px; margin-bottom: 6px; filter: drop-shadow(0 2px 8px rgba(0,0,0,0.5));">${theme.icon}</div>
+          <div style="font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.6px; background: rgba(255,255,255,0.18); backdrop-filter: blur(8px); padding: 3px 8px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.25);">${theme.tag}</div>
         `;
         
         if (img) {
           img.replaceWith(placeholder);
-        } else if (imgContainer) {
+        } else {
           imgContainer.prepend(placeholder);
         }
       }
@@ -545,9 +550,12 @@
       return;
     }
 
-    // Fix broken/missing product images on /l/products
+    // Re-image all low-res / yellow course thumbnails with sleek modern tech cards
     const productCards = document.querySelectorAll('.ProductCard, div[data-sentry-component="ClickableProductCard"]');
     productCards.forEach(card => {
+      if (card.dataset.enhanced) return;
+      card.dataset.enhanced = 'true';
+
       const titleEl = card.querySelector('h2.ProductTitle, h2, [class*="font-semibold"]');
       const title = titleEl ? titleEl.textContent.trim() : '';
       if (!title) return;
@@ -556,33 +564,33 @@
       const img = card.querySelector('img');
       const imgContainer = img?.parentElement || card.querySelector('.aspect-video') || card.firstElementChild;
 
-      // Handle broken/failed product images gracefully with a clean gradient thumb
-      if (img) {
-        img.onerror = () => {
-          if (!card.querySelector('.qp-catalog-gradient-thumb')) {
-            const placeholder = document.createElement('div');
-            placeholder.className = 'qp-catalog-gradient-thumb';
-            placeholder.style.cssText = `
-              width: 100%;
-              aspect-ratio: 16 / 9;
-              background: ${theme.bg};
-              display: flex;
-              flex-direction: column;
-              align-items: center;
-              justify-content: center;
-              color: #ffffff;
-              padding: 16px;
-              text-align: center;
-              border-bottom: 1px solid #3e4143;
-            `;
-            placeholder.innerHTML = `
-              <div style="font-size: 32px; margin-bottom: 6px;">${theme.icon}</div>
-              <div style="font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;">${theme.tag}</div>
-            `;
-            img.style.display = 'none';
-            imgContainer.prepend(placeholder);
-          }
-        };
+      if (imgContainer) {
+        const placeholder = document.createElement('div');
+        placeholder.className = 'qp-catalog-gradient-thumb';
+        placeholder.style.cssText = `
+          width: 100%;
+          aspect-ratio: 16 / 9;
+          background: ${theme.bg};
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          color: #ffffff;
+          padding: 16px;
+          text-align: center;
+          border-bottom: 1px solid #33363b;
+          box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.4);
+          position: relative;
+        `;
+        placeholder.innerHTML = `
+          <div style="font-size: 36px; margin-bottom: 6px; filter: drop-shadow(0 2px 8px rgba(0,0,0,0.5));">${theme.icon}</div>
+          <div style="font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.6px; background: rgba(255,255,255,0.18); backdrop-filter: blur(8px); padding: 3px 8px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.25);">${theme.tag}</div>
+        `;
+        if (img) {
+          img.replaceWith(placeholder);
+        } else {
+          imgContainer.prepend(placeholder);
+        }
       }
     });
 

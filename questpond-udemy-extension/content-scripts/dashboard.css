@@ -1463,5 +1463,150 @@ body.qp-dark-mode .qp-stats-bar {
   color: #cfd4dc !important;
 }
 
+/* ==========================================================================
+   HIGH-TASTE THUMBNAILS & RE-IMAGED CARDS (Leonxlnx/taste-skill)
+   ========================================================================== */
+.qp-dashboard-gradient-thumb,
+.qp-catalog-gradient-thumb {
+  position: relative !important;
+  overflow: hidden !important;
+  user-select: none !important;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.qp-dashboard-gradient-thumb::before,
+.qp-catalog-gradient-thumb::before {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  background: radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.15) 0%, transparent 60%) !important;
+  pointer-events: none !important;
+}
+
+/* ==========================================================================
+   WEEKEND TRAINING PAGE (/p/weekendtraining)
+   ========================================================================== */
+/* Hide the blank placeholder spacer block */
+#block-217584544,
+.b-217584544-top,
+.b-217584544-bottom,
+.b-217584544-background_color {
+  display: none !important;
+}
+
+body.qp-dark-mode .view-school,
+body.qp-dark-mode .blocks-page,
+body.qp-dark-mode #blocks,
+body.qp-dark-mode .page-layout-v2 {
+  background-color: #141517 !important;
+  color: #f7f9fa !important;
+}
+
+body.qp-dark-mode .course-block,
+body.qp-dark-mode .block__text,
+body.qp-dark-mode .rich-text,
+body.qp-dark-mode [class*="-background_color"],
+body.qp-dark-mode .container.bl {
+  background-color: transparent !important;
+  color: #f7f9fa !important;
+}
+
+/* Weekend Training Schedule Block */
+body.qp-dark-mode #block-217584545,
+body.qp-dark-mode #block-217584546,
+body.qp-dark-mode .block-custom-name-syllabus {
+  background-color: #222427 !important;
+  border: 1px solid #33363b !important;
+  border-radius: 8px !important;
+  padding: 32px !important;
+  margin: 24px auto !important;
+  max-width: 1200px !important;
+  color: #f7f9fa !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4) !important;
+}
+
+/* Invite Link CTA Button */
+#block-217584545 a[href*="/courses/enrolled/"],
+#block-217584545 p a {
+  display: inline-block !important;
+  background-color: var(--qp-purple) !important;
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  font-size: 15px !important;
+  padding: 10px 24px !important;
+  border-radius: 4px !important;
+  text-decoration: none !important;
+  transition: var(--qp-transition) !important;
+  margin-top: 12px !important;
+  margin-bottom: 20px !important;
+}
+
+#block-217584545 a[href*="/courses/enrolled/"]:hover,
+#block-217584545 p a:hover {
+  background-color: var(--qp-purple-hover) !important;
+  box-shadow: 0 2px 8px rgba(164, 53, 240, 0.35) !important;
+}
+
+/* Weekend Training Table */
+body.qp-dark-mode #block-217584545 table {
+  width: 100% !important;
+  border-collapse: collapse !important;
+  background-color: #1c1d1f !important;
+  border: 1px solid #33363b !important;
+  border-radius: 6px !important;
+  overflow: hidden !important;
+  margin-top: 16px !important;
+}
+
+body.qp-dark-mode #block-217584545 table tr:first-child {
+  background-color: #141517 !important;
+  border-bottom: 2px solid #33363b !important;
+}
+
+body.qp-dark-mode #block-217584545 table td {
+  padding: 12px 16px !important;
+  border: 1px solid #33363b !important;
+  color: #f7f9fa !important;
+  font-size: 14px !important;
+}
+
+body.qp-dark-mode #block-217584545 table tr:not(:first-child):hover {
+  background-color: #2a2c30 !important;
+}
+
+/* Syllabus Modules */
+body.qp-dark-mode #block-217584546 * {
+  color: #f7f9fa !important;
+  background-color: transparent !important;
+}
+
+body.qp-dark-mode #block-217584546 h3 strong,
+body.qp-dark-mode #block-217584546 h3 em {
+  color: #ffffff !important;
+  font-size: 22px !important;
+  letter-spacing: -0.3px !important;
+}
+
+body.qp-dark-mode #block-217584546 p strong u {
+  color: #a435f0 !important;
+  text-decoration: none !important;
+  font-size: 16px !important;
+}
+
+body.qp-dark-mode #block-217584546 ul {
+  padding-left: 20px !important;
+  margin-bottom: 16px !important;
+}
+
+body.qp-dark-mode #block-217584546 li {
+  color: #cfd4dc !important;
+  font-size: 14px !important;
+  line-height: 1.6 !important;
+  margin-bottom: 6px !important;
+}
+
 
 
