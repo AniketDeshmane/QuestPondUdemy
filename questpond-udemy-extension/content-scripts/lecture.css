@@ -537,16 +537,31 @@ li.section-item.active a.item {
 }
 
 /* Status checkbox */
+.course-sidebar .status-container,
+.lecture-sidebar .status-container,
 .status-container {
   display: inline-flex !important;
   align-items: center !important;
   justify-content: center !important;
+  width: 18px !important;
   min-width: 18px !important;
+  max-width: 18px !important;
   height: 18px !important;
+  min-height: 18px !important;
+  max-height: 18px !important;
   border: 2px solid #6a6f73 !important;
-  border-radius: 2px !important;
-  margin-top: 2px !important;
-  transition: var(--qp-transition) !important;
+  border-radius: 3px !important;
+  margin: 3px 12px 0 0 !important;
+  padding: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  flex-shrink: 0 !important;
+}
+
+.course-sidebar .status-icon,
+.lecture-sidebar .status-icon,
+.status-icon {
+  display: none !important;
 }
 
 li.section-item.completed .status-container {
@@ -558,7 +573,29 @@ li.section-item.completed .status-container::after {
   content: "✔" !important;
   color: #ffffff !important;
   font-size: 11px !important;
-  font-weight: bold !important;
+  font-weight: 700 !important;
+}
+
+/* Sidebar Title and Text */
+.lecture-sidebar .title-container,
+.course-sidebar .title-container {
+  display: flex !important;
+  flex-direction: column !important;
+  flex: 1 !important;
+}
+
+.lecture-sidebar .lecture-icon,
+.course-sidebar .lecture-icon {
+  display: none !important;
+}
+
+.lecture-sidebar .lecture-name,
+.course-sidebar .lecture-name {
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  color: #1c1d1f !important;
+  line-height: 1.4 !important;
+  display: block !important;
 }
 
 .qp-lesson-duration-badge {
@@ -577,16 +614,21 @@ body.qp-dark-mode #courseSidebar,
 body.qp-dark-mode .course-sidebar {
   background-color: #1c1d1f !important;
   color: #f7f9fa !important;
-  border-right-color: #3e4143 !important;
+  border-right: 1px solid #3e4143 !important;
 }
 
 body.qp-dark-mode .course-sidebar-head {
   background-color: #1c1d1f !important;
-  border-bottom-color: #3e4143 !important;
+  border-bottom: 1px solid #3e4143 !important;
+  color: #ffffff !important;
 }
 
 body.qp-dark-mode .course-sidebar-head h2 {
   color: #ffffff !important;
+}
+
+body.qp-dark-mode .course-progress-percentage {
+  color: #cfd4dc !important;
 }
 
 body.qp-dark-mode .course-progress .progressbar {
@@ -594,14 +636,14 @@ body.qp-dark-mode .course-progress .progressbar {
 }
 
 body.qp-dark-mode .course-progress .percentage {
-  color: #cfd4dc !important;
+  color: #ffffff !important;
 }
 
 body.qp-dark-mode .course-section .section-title {
   background-color: #242628 !important;
   color: #ffffff !important;
-  border-top-color: #3e4143 !important;
-  border-bottom-color: #3e4143 !important;
+  border-top: 1px solid #3e4143 !important;
+  border-bottom: 1px solid #3e4143 !important;
 }
 
 body.qp-dark-mode .course-section .section-title:hover {
@@ -610,11 +652,16 @@ body.qp-dark-mode .course-section .section-title:hover {
 
 body.qp-dark-mode li.section-item {
   background-color: #1c1d1f !important;
-  border-bottom-color: #2d2f31 !important;
+  border-bottom: 1px solid #2d2f31 !important;
 }
 
 body.qp-dark-mode li.section-item a.item {
   color: #cfd4dc !important;
+}
+
+body.qp-dark-mode .lecture-sidebar .lecture-name,
+body.qp-dark-mode .course-sidebar .lecture-name {
+  color: #f7f9fa !important;
 }
 
 body.qp-dark-mode li.section-item:hover {
@@ -624,15 +671,29 @@ body.qp-dark-mode li.section-item:hover {
 body.qp-dark-mode li.section-item.next-lecture,
 body.qp-dark-mode li.section-item.active {
   background-color: #322340 !important;
-  border-left-color: var(--qp-purple) !important;
+  border-left: 4px solid var(--qp-purple) !important;
 }
 
 body.qp-dark-mode li.section-item.next-lecture a.item,
-body.qp-dark-mode li.section-item.active a.item {
+body.qp-dark-mode li.section-item.active a.item,
+body.qp-dark-mode li.section-item.next-lecture .lecture-name,
+body.qp-dark-mode li.section-item.active .lecture-name {
   color: #ffffff !important;
+  font-weight: 700 !important;
 }
 
 body.qp-dark-mode .qp-lesson-duration-badge {
   color: #cfd4dc !important;
 }
+
+body.qp-dark-mode .course-sidebar .status-container,
+body.qp-dark-mode .lecture-sidebar .status-container {
+  border-color: #8a9199 !important;
+}
+
+body.qp-dark-mode li.section-item.completed .status-container {
+  background-color: var(--qp-purple) !important;
+  border-color: var(--qp-purple) !important;
+}
+
 
