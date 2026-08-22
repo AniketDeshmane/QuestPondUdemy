@@ -80,11 +80,13 @@ body.qp-udemy-transformed a.btn-primary,
 body.qp-udemy-transformed .btn-primary:not(div),
 body.qp-udemy-transformed .start-next-lecture,
 body.qp-udemy-transformed .lecture-complete,
-body.qp-udemy-transformed .InProgressCourseTileResumeButton,
-body.qp-udemy-transformed .ProductCardCTA,
+body.qp-udemy-transformed button.InProgressCourseTileResumeButton,
+body.qp-udemy-transformed a.InProgressCourseTileResumeButton,
+body.qp-udemy-transformed button.ProductCardCTA,
+body.qp-udemy-transformed a.ProductCardCTA,
 body.qp-udemy-transformed .qp-btn-purple,
 body.qp-udemy-transformed button.bg-primary,
-body.qp-udemy-transformed a[id^="heap_product-card-cta"] > div {
+body.qp-udemy-transformed button[id^="heap_product-card-cta"] {
   background-color: var(--qp-purple) !important;
   color: #ffffff !important;
   font-weight: 700 !important;
@@ -99,11 +101,13 @@ body.qp-udemy-transformed a[id^="heap_product-card-cta"] > div {
 body.qp-udemy-transformed .btn-primary:hover,
 body.qp-udemy-transformed .start-next-lecture:hover,
 body.qp-udemy-transformed .lecture-complete:hover,
-body.qp-udemy-transformed .InProgressCourseTileResumeButton:hover,
-body.qp-udemy-transformed .ProductCardCTA:hover,
+body.qp-udemy-transformed button.InProgressCourseTileResumeButton:hover,
+body.qp-udemy-transformed a.InProgressCourseTileResumeButton:hover,
+body.qp-udemy-transformed button.ProductCardCTA:hover,
+body.qp-udemy-transformed a.ProductCardCTA:hover,
 body.qp-udemy-transformed .qp-btn-purple:hover,
 body.qp-udemy-transformed button.bg-primary:hover,
-body.qp-udemy-transformed a[id^="heap_product-card-cta"]:hover > div {
+body.qp-udemy-transformed button[id^="heap_product-card-cta"]:hover {
   background-color: var(--qp-purple-hover) !important;
   box-shadow: 0 4px 14px rgba(164, 53, 240, 0.4) !important;
   transform: translateY(-1px) !important;
@@ -804,13 +808,15 @@ body.qp-dark-mode .enrolled-course-layout .lecture-icon {
   padding: 14px 20px !important;
   display: flex !important;
   align-items: center !important;
+  justify-content: space-between !important;
   text-decoration: none !important;
 }
 
 .course-mainbar .title-container {
   display: flex !important;
   align-items: center !important;
-  justify-content: space-between !important;
+  justify-content: flex-start !important;
+  gap: 12px !important;
   flex: 1 !important;
 }
 

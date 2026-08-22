@@ -507,12 +507,15 @@
 
       if (imgContainer) {
         const placeholder = document.createElement('div');
-        placeholder.className = 'qp-dashboard-gradient-thumb';
+        if (img) placeholder.className = img.className; // Inherit original img classes (e.g. object-cover w-full h-full)
+        placeholder.classList.add('qp-dashboard-gradient-thumb');
         placeholder.style.cssText = `
           width: 200px;
           min-width: 200px;
+          max-width: 35%;
           height: 100%;
           min-height: 120px;
+          flex-shrink: 0;
           background: ${theme.bg};
           display: flex;
           flex-direction: column;
@@ -588,10 +591,15 @@
 
       if (imgContainer) {
         const placeholder = document.createElement('div');
-        placeholder.className = 'qp-catalog-gradient-thumb';
+        if (img) placeholder.className = img.className; // Inherit original Tailwind classes
+        placeholder.classList.add('qp-catalog-gradient-thumb');
         placeholder.style.cssText = `
           width: 100%;
           aspect-ratio: 16 / 9;
+          height: auto;
+          min-height: 140px;
+          max-height: 180px;
+          flex-shrink: 0;
           background: ${theme.bg};
           display: flex;
           flex-direction: column;
