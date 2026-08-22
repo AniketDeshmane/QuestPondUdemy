@@ -607,6 +607,33 @@
     }
   }
 
+  // Dark Mode State Handler
+  function applyDarkMode(enabled) {
+    if (enabled) {
+      document.documentElement.classList.add('qp-dark-mode');
+      document.body.classList.add('qp-dark-mode');
+    } else {
+      document.documentElement.classList.remove('qp-dark-mode');
+      document.body.classList.remove('qp-dark-mode');
+    }
+  }
+
+  // Check stored dark mode preference on load
+  if (chrome?.storage?.local) {
+    chrome.storage.local.get(['darkMode'], (result) => {
+      if (result && result.darkMode) {
+        applyDarkMode(true);
+      }
+    });
+
+    // Listen for live setting changes from popup
+    chrome.runtime.onMessage.addListener((request) => {
+      if (request.action === 'settingChanged' && request.key === 'darkMode') {
+        applyDarkMode(request.value);
+      }
+    });
+  }
+
   // Initialization runner
   function init() {
     // Apply Udemy transform class globally across QuestPond

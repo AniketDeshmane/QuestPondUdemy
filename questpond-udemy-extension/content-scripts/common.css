@@ -188,3 +188,202 @@ body.qp-udemy-transformed .section-item:hover {
   background-color: var(--qp-bg-main) !important;
 }
 
+/* ==========================================================================
+   SYSTEM-WIDE UDEMY DARK MODE (Activated via class .qp-dark-mode)
+   ========================================================================== */
+html.qp-dark-mode,
+body.qp-dark-mode,
+body.qp-udemy-transformed.qp-dark-mode {
+  --qp-bg-main: #1c1d1f !important;
+  --qp-bg-card: #2d2f31 !important;
+  --qp-bg-card-hover: #3e4143 !important;
+  --qp-bg-navbar: #1c1d1f !important;
+  --qp-bg-sidebar: #242628 !important;
+  
+  --qp-heading-color: #ffffff !important;
+  --qp-text-color: #f7f9fa !important;
+  --qp-text-muted: #cfd4dc !important;
+  --qp-text-light: #ffffff !important;
+  
+  --qp-border: #3e4143 !important;
+  --qp-border-light: #3e4143 !important;
+  
+  --qp-shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.4) !important;
+  --qp-shadow-md: 0 4px 16px rgba(0, 0, 0, 0.5) !important;
+  --qp-shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.7) !important;
+  
+  background-color: #1c1d1f !important;
+  color: #f7f9fa !important;
+}
+
+/* Main background surfaces */
+body.qp-dark-mode main,
+body.qp-dark-mode .view-school,
+body.qp-dark-mode .blocks-page,
+body.qp-dark-mode .qp-dashboard-container,
+body.qp-dark-mode #blocks,
+body.qp-dark-mode .BrowseProducts {
+  background-color: #1c1d1f !important;
+  color: #f7f9fa !important;
+}
+
+/* Dark Mode Cards & Panels */
+body.qp-dark-mode .qp-course-card,
+body.qp-dark-mode .ProductCard,
+body.qp-dark-mode div[data-sentry-component="ClickableProductCard"],
+body.qp-dark-mode a[href*="/courses/"][class*="border"],
+body.qp-dark-mode .course-section,
+body.qp-dark-mode .course-block,
+body.qp-dark-mode #block-217584546,
+body.qp-dark-mode .qp-streak-card,
+body.qp-dark-mode .qp-dashboard-streak-banner,
+body.qp-dark-mode .qp-modal-content {
+  background-color: #2d2f31 !important;
+  border-color: #3e4143 !important;
+  color: #f7f9fa !important;
+}
+
+body.qp-dark-mode .qp-course-card:hover,
+body.qp-dark-mode .ProductCard:hover,
+body.qp-dark-mode a[href*="/courses/"][class*="border"]:hover {
+  background-color: #383a3d !important;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6) !important;
+}
+
+/* Headings and text in Dark Mode */
+body.qp-dark-mode h1,
+body.qp-dark-mode h2,
+body.qp-dark-mode h3,
+body.qp-dark-mode h4,
+body.qp-dark-mode .ProductCard h2.ProductTitle,
+body.qp-dark-mode .qp-course-title {
+  color: #ffffff !important;
+}
+
+body.qp-dark-mode p,
+body.qp-dark-mode span,
+body.qp-dark-mode .ProductCard p,
+body.qp-dark-mode .Author {
+  color: #cfd4dc !important;
+}
+
+/* Toolbars, Search & Filters in Dark Mode */
+body.qp-dark-mode .BrowseProductsFilters,
+body.qp-dark-mode .qp-search-filter-card,
+body.qp-dark-mode header.w-full.row-auto.col-span-full {
+  background-color: #2d2f31 !important;
+  border-color: #3e4143 !important;
+  color: #ffffff !important;
+}
+
+/* Inputs & Dropdowns in Dark Mode */
+body.qp-dark-mode input[type="text"],
+body.qp-dark-mode input[type="search"],
+body.qp-dark-mode input#heap_product-search,
+body.qp-dark-mode select,
+body.qp-dark-mode #heap_author-filter,
+body.qp-dark-mode #heap_product-type-filter,
+body.qp-dark-mode #heap_product-sort,
+body.qp-dark-mode #heap_my-library-filter,
+body.qp-dark-mode #qp-search-input,
+body.qp-dark-mode #qp-sort-select,
+body.qp-dark-mode #qp-category-select {
+  background-color: #1c1d1f !important;
+  border-color: #3e4143 !important;
+  color: #ffffff !important;
+}
+
+/* Category Pills in Dark Mode */
+body.qp-dark-mode .CourseCategoryToggleGroup button,
+body.qp-dark-mode .qp-pill:not(.active) {
+  background-color: #2d2f31 !important;
+  border-color: #3e4143 !important;
+  color: #cfd4dc !important;
+}
+
+body.qp-dark-mode .CourseCategoryToggleGroup button:hover,
+body.qp-dark-mode .qp-pill:not(.active):hover {
+  background-color: #3e4143 !important;
+  color: #ffffff !important;
+}
+
+body.qp-dark-mode .CourseCategoryToggleGroup button[data-state="on"],
+body.qp-dark-mode .CourseCategoryToggleGroup button[aria-checked="true"],
+body.qp-dark-mode .CourseCategoryToggleGroup button.qp-pill-active,
+body.qp-dark-mode .qp-pill.active {
+  background-color: var(--qp-purple) !important;
+  color: #ffffff !important;
+  border-color: var(--qp-purple) !important;
+}
+
+/* Secondary Buttons in Dark Mode */
+body.qp-dark-mode .InProgressCourseListViewMoreButton,
+body.qp-dark-mode .MyLibraryListViewMoreButton,
+body.qp-dark-mode .AdditionalProductListViewMoreButton,
+body.qp-dark-mode .CompletedCourseTileRevisitButton,
+body.qp-dark-mode .InProgressCourseListNMoreButton,
+body.qp-dark-mode .MyLibraryListNMoreButton,
+body.qp-dark-mode a[href*="in_progress"],
+body.qp-dark-mode .btn-default,
+body.qp-dark-mode .btn-secondary {
+  background-color: #2d2f31 !important;
+  border-color: #55595d !important;
+  color: #ffffff !important;
+}
+
+body.qp-dark-mode .InProgressCourseListViewMoreButton:hover,
+body.qp-dark-mode .MyLibraryListViewMoreButton:hover,
+body.qp-dark-mode .AdditionalProductListViewMoreButton:hover,
+body.qp-dark-mode a[href*="in_progress"]:hover {
+  background-color: #3e4143 !important;
+}
+
+/* Tables & Schedules in Dark Mode */
+body.qp-dark-mode table,
+body.qp-dark-mode table tr:not(:first-child) {
+  background-color: #2d2f31 !important;
+  border-color: #3e4143 !important;
+  color: #f7f9fa !important;
+}
+
+body.qp-dark-mode table tr:not(:first-child) td {
+  border-color: #3e4143 !important;
+  color: #f7f9fa !important;
+}
+
+body.qp-dark-mode table tr:not(:first-child):hover {
+  background-color: #383a3d !important;
+}
+
+/* Course Syllabus & Section Titles in Dark Mode */
+body.qp-dark-mode .course-section-title,
+body.qp-dark-mode .section-title {
+  background-color: #242628 !important;
+  border-color: #3e4143 !important;
+  color: #ffffff !important;
+}
+
+body.qp-dark-mode li.section-item {
+  background-color: #1c1d1f !important;
+  border-color: #2d2f31 !important;
+}
+
+body.qp-dark-mode li.section-item a.item {
+  color: #cfd4dc !important;
+}
+
+body.qp-dark-mode li.section-item:hover {
+  background-color: #2d2f31 !important;
+}
+
+body.qp-dark-mode li.section-item.active,
+body.qp-dark-mode li.section-item.next-lecture {
+  background-color: #322340 !important;
+  border-left-color: var(--qp-purple) !important;
+}
+
+body.qp-dark-mode li.section-item.active a.item {
+  color: #ffffff !important;
+}
+
+

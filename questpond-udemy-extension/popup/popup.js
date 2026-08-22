@@ -11,28 +11,39 @@ document.addEventListener('DOMContentLoaded', async () => {
   // Load saved settings
   const settings = await chrome.storage.local.get([
     'extensionEnabled',
-    'lectureDarkMode',
+    'darkMode',
     'enhancedCurriculum'
   ]);
 
   toggleEnabled.checked = settings.extensionEnabled !== false;
-  toggleDarkMode.checked = settings.lectureDarkMode !== false;
+  toggleDarkMode.checked = settings.darkMode === true;
   toggleCurriculum.checked = settings.enhancedCurriculum !== false;
 
   updateStatus(toggleEnabled.checked);
+
+  // Broadcast settings change to all active tabs
+  async function broadcastSetting(key, value) {
+    const tabs = await chrome.tabs.query({ url: ['*://questpond.teachable.com/*', '*://www.questpond.com/*'] });
+    tabs.forEach(tab => {
+      chrome.tabs.sendMessage(tab.id, { action: 'settingChanged', key, value }).catch(() => {});
+    });
+  }
 
   // Toggle events
   toggleEnabled.addEventListener('change', async () => {
     await chrome.storage.local.set({ extensionEnabled: toggleEnabled.checked });
     updateStatus(toggleEnabled.checked);
+    broadcastSetting('extensionEnabled', toggleEnabled.checked);
   });
 
   toggleDarkMode.addEventListener('change', async () => {
-    await chrome.storage.local.set({ lectureDarkMode: toggleDarkMode.checked });
+    await chrome.storage.local.set({ darkMode: toggleDarkMode.checked });
+    broadcastSetting('darkMode', toggleDarkMode.checked);
   });
 
   toggleCurriculum.addEventListener('change', async () => {
     await chrome.storage.local.set({ enhancedCurriculum: toggleCurriculum.checked });
+    broadcastSetting('enhancedCurriculum', toggleCurriculum.checked);
   });
 
   function updateStatus(enabled) {
@@ -58,7 +69,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   // Open QuestPond dashboard
   btnDashboard.addEventListener('click', () => {
-    chrome.tabs.create({ url: 'https://questpond.teachable.com/p/questvideos' });
+    chrome.tabs.create({ url: 'https://questpond.teachable.com/l/dashboard' });
     window.close();
   });
 });
