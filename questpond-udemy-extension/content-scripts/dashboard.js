@@ -526,21 +526,10 @@
     if (mainHeading && !document.querySelector('.qp-dashboard-streak-banner')) {
       const banner = document.createElement('div');
       banner.className = 'qp-dashboard-streak-banner';
-      banner.style.cssText = `
-        background: #ffffff;
-        border: 1px solid #d1d7dc;
-        border-radius: 8px;
-        padding: 20px 24px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin: 24px 0 32px 0;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.06);
-      `;
       banner.innerHTML = `
         <div>
-          <h3 style="font-size: 16px; font-weight: 700; color: #1c1d1f; margin: 0 0 4px 0;">⚡ Daily Learning Goal</h3>
-          <p style="font-size: 13px; color: #6a6f73; margin: 0;">Keep up the momentum! Watch 1 lesson today to maintain your weekly streak.</p>
+          <h3 class="qp-streak-title" style="font-size: 16px; font-weight: 700; margin: 0 0 4px 0;">⚡ Daily Learning Goal</h3>
+          <p class="qp-streak-subtext" style="font-size: 13px; margin: 0;">Keep up the momentum! Watch 1 lesson today to maintain your weekly streak.</p>
         </div>
         <div style="display: flex; align-items: center; gap: 12px;">
           <div style="width: 42px; height: 42px; border-radius: 50%; border: 3px solid #a435f0; display: flex; align-items: center; justify-content: center; font-weight: 700; color: #a435f0; font-size: 13px;">86%</div>

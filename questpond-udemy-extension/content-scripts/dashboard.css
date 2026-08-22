@@ -1197,3 +1197,152 @@ footer.SiteFooter a:hover {
   color: #ffffff !important;
 }
 
+/* ==========================================================================
+   DASHBOARD & MODAL DARK MODE COMPREHENSIVE FIXES (body.qp-dark-mode)
+   ========================================================================== */
+
+/* 1. Lecture Preview Modal in Dark Mode */
+body.qp-dark-mode .qp-modal-card {
+  background-color: #2d2f31 !important;
+  border: 1px solid #3e4143 !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8) !important;
+}
+
+body.qp-dark-mode .qp-modal-header {
+  background-color: #1c1d1f !important;
+  border-bottom: 1px solid #3e4143 !important;
+  color: #ffffff !important;
+}
+
+body.qp-dark-mode .qp-modal-header h3 {
+  color: #ffffff !important;
+}
+
+body.qp-dark-mode .qp-modal-body {
+  background-color: #2d2f31 !important;
+}
+
+body.qp-dark-mode .qp-modal-lesson-item {
+  background-color: #2d2f31 !important;
+  border-bottom: 1px solid #3e4143 !important;
+  color: #f7f9fa !important;
+}
+
+body.qp-dark-mode .qp-modal-lesson-item:hover {
+  background-color: #3e4143 !important;
+  color: #ffffff !important;
+}
+
+body.qp-dark-mode .qp-modal-lesson-left {
+  color: #f7f9fa !important;
+}
+
+body.qp-dark-mode .qp-modal-lesson-left span {
+  color: #f7f9fa !important;
+}
+
+body.qp-dark-mode .qp-modal-lesson-duration {
+  color: #cfd4dc !important;
+}
+
+body.qp-dark-mode .qp-modal-lesson-icon {
+  color: var(--qp-purple) !important;
+}
+
+/* 2. Course Cards on /p/questvideos in Dark Mode */
+body.qp-dark-mode .qp-course-card {
+  background-color: #2d2f31 !important;
+  border: 1px solid #3e4143 !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4) !important;
+}
+
+body.qp-dark-mode .qp-course-card:hover {
+  background-color: #383a3d !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6) !important;
+}
+
+body.qp-dark-mode .qp-card-title {
+  color: #ffffff !important;
+}
+
+body.qp-dark-mode .qp-card-instructor {
+  color: #cfd4dc !important;
+}
+
+body.qp-dark-mode .qp-card-progressbar {
+  background-color: #3e4143 !important;
+}
+
+body.qp-dark-mode .qp-card-completion {
+  color: #cfd4dc !important;
+}
+
+body.qp-dark-mode .qp-card-start-btn {
+  color: #d2a4f9 !important;
+}
+
+/* 3. Hero & Search Banner in Dark Mode */
+body.qp-dark-mode .qp-udemy-hero {
+  background-color: #1c1d1f !important;
+  border-bottom: 1px solid #3e4143 !important;
+  color: #ffffff !important;
+}
+
+body.qp-dark-mode .qp-udemy-hero h1 {
+  color: #ffffff !important;
+}
+
+body.qp-dark-mode .qp-udemy-hero p {
+  color: #cfd4dc !important;
+}
+
+body.qp-dark-mode .qp-streak-card {
+  background-color: #2d2f31 !important;
+  border-color: #3e4143 !important;
+}
+
+body.qp-dark-mode .qp-streak-title {
+  color: #ffffff !important;
+}
+
+body.qp-dark-mode .qp-streak-subtext {
+  color: #cfd4dc !important;
+}
+
+body.qp-dark-mode .qp-search-filter-card {
+  background-color: #2d2f31 !important;
+  border-color: #3e4143 !important;
+}
+
+body.qp-dark-mode .qp-search-input {
+  background-color: #1c1d1f !important;
+  border-color: #3e4143 !important;
+  color: #ffffff !important;
+}
+
+body.qp-dark-mode .qp-pill {
+  background-color: #2d2f31 !important;
+  border-color: #3e4143 !important;
+  color: #cfd4dc !important;
+}
+
+body.qp-dark-mode .qp-pill:hover {
+  background-color: #3e4143 !important;
+  color: #ffffff !important;
+}
+
+body.qp-dark-mode .qp-pill.active {
+  background-color: var(--qp-purple) !important;
+  color: #ffffff !important;
+  border-color: var(--qp-purple) !important;
+}
+
+body.qp-dark-mode .qp-sort-select {
+  color: #ffffff !important;
+}
+
+body.qp-dark-mode .qp-stats-bar {
+  color: #cfd4dc !important;
+}
+
+

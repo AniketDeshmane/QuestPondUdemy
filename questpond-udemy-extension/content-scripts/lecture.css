@@ -569,3 +569,70 @@ li.section-item.completed .status-container::after {
   align-items: center !important;
   gap: 4px !important;
 }
+
+/* ==========================================================================
+   LECTURE PLAYER DARK MODE OVERRIDES (body.qp-dark-mode)
+   ========================================================================== */
+body.qp-dark-mode #courseSidebar,
+body.qp-dark-mode .course-sidebar {
+  background-color: #1c1d1f !important;
+  color: #f7f9fa !important;
+  border-right-color: #3e4143 !important;
+}
+
+body.qp-dark-mode .course-sidebar-head {
+  background-color: #1c1d1f !important;
+  border-bottom-color: #3e4143 !important;
+}
+
+body.qp-dark-mode .course-sidebar-head h2 {
+  color: #ffffff !important;
+}
+
+body.qp-dark-mode .course-progress .progressbar {
+  background-color: #3e4143 !important;
+}
+
+body.qp-dark-mode .course-progress .percentage {
+  color: #cfd4dc !important;
+}
+
+body.qp-dark-mode .course-section .section-title {
+  background-color: #242628 !important;
+  color: #ffffff !important;
+  border-top-color: #3e4143 !important;
+  border-bottom-color: #3e4143 !important;
+}
+
+body.qp-dark-mode .course-section .section-title:hover {
+  background-color: #2d2f31 !important;
+}
+
+body.qp-dark-mode li.section-item {
+  background-color: #1c1d1f !important;
+  border-bottom-color: #2d2f31 !important;
+}
+
+body.qp-dark-mode li.section-item a.item {
+  color: #cfd4dc !important;
+}
+
+body.qp-dark-mode li.section-item:hover {
+  background-color: #2d2f31 !important;
+}
+
+body.qp-dark-mode li.section-item.next-lecture,
+body.qp-dark-mode li.section-item.active {
+  background-color: #322340 !important;
+  border-left-color: var(--qp-purple) !important;
+}
+
+body.qp-dark-mode li.section-item.next-lecture a.item,
+body.qp-dark-mode li.section-item.active a.item {
+  color: #ffffff !important;
+}
+
+body.qp-dark-mode .qp-lesson-duration-badge {
+  color: #cfd4dc !important;
+}
+
