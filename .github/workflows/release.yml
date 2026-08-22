@@ -1,4 +1,4 @@
-name: Build & Release Extension
+name: Build, Release & Publish Extension
 
 on:
   push:
@@ -11,8 +11,8 @@ permissions:
   contents: write
 
 jobs:
-  build-and-release:
-    name: Package Extension & Create Release
+  build-and-publish:
+    name: Package, Release & Publish to Chrome Web Store
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -62,21 +62,27 @@ jobs:
             
             Automated build for commit [`${{ steps.vars.outputs.short_sha }}`](${{ github.server_url }}/${{ github.repository }}/commit/${{ github.sha }}).
             
-            ### 📦 Download & Installation
-            1. Download **`${{ steps.vars.outputs.zip_name }}`** attached below.
-            2. Extract the contents to a folder.
-            3. In **Chrome / Brave / Edge**, open `chrome://extensions/`.
-            4. Turn on **Developer mode** (top right).
-            5. Click **Load unpacked** and select the unzipped folder.
-            
-            ### ✨ Features Included
-            - 📊 Modern **Udemy "My learning"** Dashboard layout with course cards grid.
-            - 🎨 Dynamic tech gradient badges and thumbnails.
-            - 🎬 Dark theater mode video player with purple CTA buttons.
-            - ⏱️ Curriculum sidebar duration badges and statistics.
-            - 🔍 Instant live search and Interview Mode toggle.
+            ### 📦 Download & Manual Installation
+            1. Download **`${{ steps.vars.outputs.zip_name }}`** below.
+            2. Extract contents and load unpacked in `chrome://extensions/`.
           files: ${{ steps.vars.outputs.zip_name }}
           draft: false
           prerelease: false
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Automatically Upload & Publish to Chrome Web Store
+        if: "${{ env.CWS_CLIENT_ID != '' && env.CWS_CLIENT_SECRET != '' && env.CWS_REFRESH_TOKEN != '' && env.CWS_EXTENSION_ID != '' }}"
+        uses: mnao305/chrome-extension-upload@v5.0.0
+        with:
+          file-path: ${{ steps.vars.outputs.zip_name }}
+          extension-id: ${{ secrets.CWS_EXTENSION_ID }}
+          client-id: ${{ secrets.CWS_CLIENT_ID }}
+          client-secret: ${{ secrets.CWS_CLIENT_SECRET }}
+          refresh-token: ${{ secrets.CWS_REFRESH_TOKEN }}
+          publish: true
+        env:
+          CWS_CLIENT_ID: ${{ secrets.CWS_CLIENT_ID }}
+          CWS_CLIENT_SECRET: ${{ secrets.CWS_CLIENT_SECRET }}
+          CWS_REFRESH_TOKEN: ${{ secrets.CWS_REFRESH_TOKEN }}
+          CWS_EXTENSION_ID: ${{ secrets.CWS_EXTENSION_ID }}
